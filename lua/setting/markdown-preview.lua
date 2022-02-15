@@ -1,0 +1,3 @@
+-- local vim = vim
+-- vim.g.mkdp_open_ip = '20469'
+-- vim.g.mkdp_browser = 'firefox'
