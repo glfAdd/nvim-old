@@ -84,5 +84,3 @@ dap.configurations.java = {
   --   mainClass= "A"
   -- },
 }
-require'jdtls'.test_class()
-require'jdtls'.test_nearest_method()
