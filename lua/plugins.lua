@@ -211,6 +211,17 @@ return require('packer').startup(function()
     end
   }
 
+  -- 虚拟文本
+  use {
+    'theHamsta/nvim-dap-virtual-text',
+    config = function()
+      require('setting.nvim-dap-virtual-text')
+    end
+  }
+
+
+
+
   -- translat
   use {
     'voldikss/vim-translator',

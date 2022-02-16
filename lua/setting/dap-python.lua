@@ -4,8 +4,10 @@ local dap = require('dap')
 local vim = vim
 
 
+-- dap.configurations.python = dap.configurations.python or {}  -- 保留系统自带的
+dap.configurations.python = {} -- 删除系统自带的
+
 -- simple python script
-dap.configurations.python = dap.configurations.python or {}
 table.insert(dap.configurations.python, {
   type = 'python',
   request = 'launch',
@@ -33,6 +35,7 @@ table.insert(dap.configurations.python, {
 
 
 -- flask server args
+-- 启动示例
 -- run --port 10469
 table.insert(dap.configurations.python, {
   type = 'python';
