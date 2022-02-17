@@ -14,7 +14,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "aaaa.py",
+                "FLASK_APP": "${file}",
                 "FLASK_ENV": "development",
                 "FLASK_DEBUG": "0"
             },
