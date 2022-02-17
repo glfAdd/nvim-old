@@ -1,6 +1,6 @@
 local vim = vim
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = '/opt/neovim-dap/dap-java/' .. project_name
+local workspace_dir = '/opt/neovim-dap/dap-autocreate/' .. project_name
 
 local bundles = {
   vim.fn.glob("/opt/neovim-dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")

@@ -201,7 +201,6 @@ return require('packer').startup(function()
     'mfussenegger/nvim-dap-python',
     config = function()
       require('setting.dap-python')
-      require('setting.dap-java')
     end
   }
   -- dap java
