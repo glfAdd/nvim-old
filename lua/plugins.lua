@@ -282,6 +282,14 @@ return require('packer').startup(function()
     end
   }
 
+  -- ranger
+  use {
+    'kevinhwang91/rnvimr',
+    config = function()
+      require('setting.rnvimr')
+    end
+  }
+
 
 
 end)
