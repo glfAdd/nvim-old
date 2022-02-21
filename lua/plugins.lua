@@ -265,6 +265,13 @@ return require('packer').startup(function()
     end
   }
   use 'nvim-telescope/telescope-dap.nvim'
+  use {
+    'nvim-telescope/telescope-ui-select.nvim',
+    config = function()
+      require('setting.telescope-ui-select')
+    end
+
+  }
 
   -- move window
   use {
