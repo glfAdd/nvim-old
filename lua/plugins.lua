@@ -1,234 +1,66 @@
-return require('packer').startup(function()
+require('packer').startup(function()
   local use = use
-
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- packer dependent
+  -- dependent
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'kyazdani42/nvim-web-devicons'
 
-  -- window change
-  use {
-    'sindrets/winshift.nvim',
-    config = function()
-      require("setting.winshift")
-    end
-  }
+  -- window
+  use 'sindrets/winshift.nvim' -- window change
+  use 'hoschi/yode-nvim' -- move window
+  use 'https://gitlab.com/yorickpeterse/nvim-window' -- pick window
 
   -- terminal
-  use {
-    "akinsho/toggleterm.nvim",
-    config = function()
-      require("setting.toggleterm")
-    end
-  }
+  use "akinsho/toggleterm.nvim"
+  use 'voldikss/vim-floaterm'
 
-  -- terminal
-  use {
-    'voldikss/vim-floaterm',
-    config = function()
-      require("setting.vim-floaterm")
-    end
-  }
-
-  -- dashboard
-  use {
-    'goolord/alpha-nvim',
-    config = function()
-      require("setting.alpha-nvim")
-    end
-  }
-
-  -- blankline 缩进线
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("setting.indent-blankline")
-    end
-  }
-
-  -- bufferline
-  use {
-    'akinsho/bufferline.nvim',
-    config = function()
-      require('setting.bufferline-nvim')
-    end
-  }
-
-  -- which key
-  use {
-    'folke/which-key.nvim',
-    config = function()
-      require('setting.which-key')
-    end
-  }
-
-  -- Comment 注释
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('setting.comment')
-    end
-  }
-
-  -- 符号配对 []{}()''""
-  use {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('setting.nvim-autopairs')
-    end
-  }
-
-  -- color theme
-  use {
-    "ellisonleao/gruvbox.nvim",
-    config = function()
-      require('setting.gruvbox')
-    end
-  }
-
-  -- filemanager
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = function()
-      require('setting.nvim-tree')
-    end
-  }
-
-  use {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require('setting.lualine')
-    end
-  }
-
-  -- treesitter 语法高亮
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require('setting.nvim-treesitter')
-    end
-  }
+  -- UI
+  use 'goolord/alpha-nvim' -- dashboard
+  use 'akinsho/bufferline.nvim'
+  use 'nvim-lualine/lualine.nvim' -- status line
+  use 'folke/which-key.nvim'
+  use "ellisonleao/gruvbox.nvim" -- color theme
+  use 'kevinhwang91/rnvimr' -- ranger
+  -- use "lukas-reineke/indent-blankline.nvim" -- blankline 缩进线
 
   -- lsp
-  use {
-    'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
-    config = function()
-      require('setting.lsp')
-    end
-  }
-  -- 函数参数提示
-  use {
-    "ray-x/lsp_signature.nvim",
-    config = function()
-      require('setting.lsp_signature')
-    end
-  }
-
-
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use "ray-x/lsp_signature.nvim" -- 函数参数提示
 
   -- nvim-cmp
   use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
-  use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
-  use 'hrsh7th/cmp-path'     -- { name = 'path' }
-  use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
-  -- use 'hrsh7th/cmp-nvim-lua'
-  -- vsnip
-  use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
-  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-vsnip' -- vsnip
+  use 'hrsh7th/vim-vsnip' -- vsnip
   use 'rafamadriz/friendly-snippets'
   use 'onsails/lspkind-nvim' -- 代码补全提示的图标
 
   -- 代码段 bilibili https://www.bilibili.com/s/video/BV1iL4y1B7gH
   -- 示例代码 https://www.codeleading.com/article/21256072499/
-  use {'L3MON4D3/LuaSnip'}
-  use {'saadparwaiz1/cmp_luasnip'}
-
-
-  -- error list
-  use {
-  "folke/trouble.nvim",
-  config = function()
-    require('setting.trouble')
-  end
-  }
-  -- use {
-  --   'kevinhwang91/nvim-bqf',
-  --   ft = 'qf'
-  -- }
-
-  -- 右侧边栏函数, 变量
-  use {
-    'simrat39/symbols-outline.nvim',
-    config = function()
-      require('setting.symbols-outline')
-    end
-  }
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- code format
   -- 方式1
-  use {
-    'mhartington/formatter.nvim',
-    config = function()
-      require('setting.formatter')
-    end
-  }
+  use 'mhartington/formatter.nvim'
   -- 方式2
   use 'sbdchd/neoformat'
 
 
   -- dap
-  use {
-    'mfussenegger/nvim-dap',
-    config = function()
-      require('setting.dap')
-    end
-  }
-  use {
-    "rcarriga/nvim-dap-ui",
-    config = function()
-      require('setting.dap-ui')
-    end
-  }
+  use 'mfussenegger/nvim-dap'
+  use 'mfussenegger/nvim-dap-python' -- dap pyhton
+  use 'mfussenegger/nvim-jdtls' -- dap java
+  use "rcarriga/nvim-dap-ui"
 
-  -- dap pyhton
-  use {
-    'mfussenegger/nvim-dap-python',
-    config = function()
-      require('setting.dap-python')
-    end
-  }
-  -- dap java
-  use {
-    'mfussenegger/nvim-jdtls',
-    config = function()
-      require('setting.nvim-jdtls')
-    end
-  }
-
-  -- 虚拟文本
-  use {
-    'theHamsta/nvim-dap-virtual-text',
-    config = function()
-      require('setting.nvim-dap-virtual-text')
-    end
-  }
-
-
-
-
-  -- translat
-  use {
-    'voldikss/vim-translator',
-    config = function()
-      require('setting.vim-translator')
-    end
-  }
 
   -- markdown
   -- use {
@@ -238,65 +70,55 @@ return require('packer').startup(function()
   --   --   require("setting.alpha-nvim")
   --   -- end
   -- }
-  -- -- markdown preview
-  -- use {
-  --   'iamcco/markdown-preview.nvim',
-  --   config = function()
-  --     require('setting.markdown-preview')
-  --   end
-  -- }
+  -- use 'iamcco/markdown-preview.nvim' -- markdown preview
 
   -- 望远镜
-  use {
-    'nvim-telescope/telescope.nvim',
-    config = function()
-      require('setting.telescope')
-    end
-  }
-  -- 模糊查询
-  use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make'
-  }
-  use{
-    "nvim-telescope/telescope-project.nvim",
-    config = function()
-      require('setting.telescope-project')
-    end
-  }
+  use 'nvim-telescope/telescope.nvim'
+  use "nvim-telescope/telescope-project.nvim"
   use 'nvim-telescope/telescope-dap.nvim'
-  use {
-    'nvim-telescope/telescope-ui-select.nvim',
-    config = function()
-      require('setting.telescope-ui-select')
-    end
+  use 'nvim-telescope/telescope-ui-select.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- 模糊查询
 
-  }
-
-  -- move window
-  use {
-    'hoschi/yode-nvim',
-    config = function()
-      require('setting.yode-nvim')
-    end
-  }
-
-  -- pick window
-  use {
-    'https://gitlab.com/yorickpeterse/nvim-window',
-    config = function()
-      require('setting.nvim-window')
-    end
-  }
-
-  -- ranger
-  use {
-    'kevinhwang91/rnvimr',
-    config = function()
-      require('setting.rnvimr')
-    end
-  }
-
-
+  -- tool
+  use "folke/trouble.nvim" -- error list
+  use 'simrat39/symbols-outline.nvim' -- 右侧边栏函数, 变量
+  use 'theHamsta/nvim-dap-virtual-text' -- 虚拟文本
+  use 'voldikss/vim-translator' -- translat
+  use 'numToStr/Comment.nvim' -- Comment 注释
+  use 'windwp/nvim-autopairs' -- 符号配对 []{}()''""
+  use 'kyazdani42/nvim-tree.lua' -- filemanager
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', } -- treesitter 语法高亮
+  -- use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
 end)
+
+require("setting.winshift")
+require("setting.toggleterm")
+require("setting.vim-floaterm")
+require("setting.alpha-nvim")
+-- require("setting.indent-blankline")
+require('setting.bufferline-nvim')
+require('setting.which-key')
+require('setting.comment')
+require('setting.gruvbox')
+require('setting.nvim-tree')
+require('setting.telescope')
+require('setting.vim-translator')
+require('setting.nvim-jdtls')
+require('setting.dap')
+require('setting.dap-ui')
+require('setting.dap-python')
+require('setting.nvim-dap-virtual-text')
+require('setting.formatter')
+require('setting.symbols-outline')
+require('setting.trouble')
+require('setting.lsp')
+require('setting.lsp_signature')
+require('setting.nvim-treesitter')
+require('setting.lualine')
+require('setting.nvim-autopairs')
+require('setting.rnvimr')
+require('setting.nvim-window')
+require('setting.yode-nvim')
+require('setting.telescope-ui-select')
+require('setting.telescope-project')
