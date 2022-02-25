@@ -3,7 +3,7 @@ local lsp_installer_servers = require('nvim-lsp-installer.servers')
 local servers = {
     "sumneko_lua",
     "pyright",
-    "jdtls",
+    -- "jdtls",
     "jsonls",
     "yamlls",
     "lemminx"
