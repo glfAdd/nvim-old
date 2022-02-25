@@ -108,8 +108,8 @@ command! -nargs=0 TestClass  :lua require'jdtls'.test_class()
 command! -nargs=0 TestMethod  :lua require'jdtls'.test_nearest_method()
 command! -nargs=0 TestClassUI  :call s:jdtls_test_class_ui()
 command! -nargs=0 TestMethodUI :call s:jdtls_test_method_ui()
-nnoremap <leader>dc <Cmd>lua require'jdtls'.test_class()<CR>
-nnoremap <leader>dm <Cmd>lua require'jdtls'.test_nearest_method()<CR>
+" nnoremap <leader>dc <Cmd>lua require'jdtls'.test_class()<CR>
+" nnoremap <leader>dm <Cmd>lua require'jdtls'.test_nearest_method()<CR>
 command! -nargs=0 JdtRefreshDebugConfigs :lua require('jdtls.dap').setup_dap_main_class_configs()
 command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
 command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)
