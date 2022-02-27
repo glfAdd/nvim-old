@@ -1,33 +1,35 @@
-local vim = vim
+-- ~/.config/nvim/ftplugin/java.lua 每次打开 .java 文件时会调用这个文件
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = '/opt/neovim-dap/dap_auto_create' .. project_name
-local maver_setting = '/opt/apache-maven-3.8.1/conf/settings.xml'
+local workspace_dir = '/opt/neovim-dap/dap-autocreate/' .. project_name
 
 local bundles = {
-  vim.fn.glob("/opt/neovim-dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"),
-}
+  vim.fn.glob("/opt/neovim-dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+};
 vim.list_extend(bundles, vim.split(vim.fn.glob("/opt/neovim-dap/vscode-java-test/server/*.jar"), "\n"))
 
 local config = {
   cmd = {
-    'java',
+    '/opt/jdk-11.0.12/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
-    '-Dlog.level=ALL',
-    '-Xms1g',
+    '-Dlog.level=ALL' ,
+    -- '-Xms100m ',
+    '-Xmx2g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', '/opt/neovim-dap/jdt-language-server-1.8.0/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', '/opt/neovim-dap/jdt-language-server-1.8.0/plugins/org.eclipse.equinox.launcher_.jar',
     '-configuration', '/opt/neovim-dap/jdt-language-server-1.8.0/config_linux',
-    '-data', workspace_dir -- 项目配置文件保存在这里
+    '-data', workspace_dir -- eclipse.jdt.ls 存储项目文件的路径
   },
   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
+
+  -- eclipse.jdt.ls 设置
   settings = {
     java = {
-      home = '/opt/jdk-11.0.12',
+      home = "/opt/jdk-11.0.12",
       eclipse = {
         downloadSources = true,
       },
@@ -40,32 +42,31 @@ local config = {
       },
       configuration = {
         maven = {
-          userSettings = maver_setting,
-          globalSettings = maver_setting
+          userSettings = "/opt/apache-maven-3.8.1/conf/settings.xml",
+          globalSettings = "/opt/apache-maven-3.8.1/conf/settings.xml",
         },
         runtimes = {
+          -- {
+          --   name = "JavaSE-1.8",
+          --   path = "/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home",
+          -- },
           {
             name = "JavaSE-11",
             path = "/opt/jdk-11.0.12",
           },
-          -- {
-          --   name = "JavaSE-17",
-          --   path = "/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home",
-          -- },
         }
-      }
+      },
     }
   },
+  -- 指定 eclipse.jdt.ls jar 路径
   init_options = {
     bundles = bundles
   },
 }
 
-
-config['on_attach'] = function(client, bufnr)
-  require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-end
+-- config['on_attach'] = function(client, bufnr)
+--   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+-- end
 
 require('jdtls').start_or_attach(config)
-
 

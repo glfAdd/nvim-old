@@ -54,7 +54,6 @@ require('packer').startup(function()
   -- 方式2
   use 'sbdchd/neoformat'
 
-
   -- dap
   use 'mfussenegger/nvim-dap'
   use 'mfussenegger/nvim-dap-python' -- dap pyhton
@@ -92,33 +91,3 @@ require('packer').startup(function()
 
 end)
 
-require("setting.winshift")
-require("setting.init-toggleterm")
-require("setting.vim-floaterm")
-require("setting.alpha-nvim")
--- require("setting.indent-blankline")
-require('setting.bufferline-nvim')
-require('setting.which-key')
-require('setting.comment')
-require('setting.gruvbox')
-require('setting.init-nvim-tree')
-require('setting.init-telescope')
-require('setting.vim-translator')
--- require('setting.nvim-jdtls')
-require('setting.dap')
-require('setting.dap-ui')
-require('setting.dap-python')
-require('setting.nvim-dap-virtual-text')
-require('setting.init-formatter')
-require('setting.symbols-outline')
-require('setting.trouble')
-require('setting.lsp')
-require('setting.lsp_signature')
-require('setting.nvim-treesitter')
-require('setting.lualine')
-require('setting.nvim-autopairs')
-require('setting.rnvimr')
-require('setting.nvim-window')
-require('setting.yode-nvim')
-require('setting.telescope-ui-select')
-require('setting.telescope-project')
