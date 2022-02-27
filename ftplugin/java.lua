@@ -20,8 +20,8 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', '/opt/neovim-dap/jdt-language-server-1.8.0/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-    '-configuration', '/opt/neovim-dap/jdt-language-server-1.8.0/config_linux',
+    '-jar', '/opt/neovim-dap/jdt-language-server-1.9.0/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-configuration', '/opt/neovim-dap/jdt-language-server-1.9.0/config_linux',
     '-data', workspace_dir -- 项目配置文件保存在这里
   },
   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
