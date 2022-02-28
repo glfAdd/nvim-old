@@ -70,10 +70,10 @@ map('n', '<leader>xr', '<cmd>Trouble lsp_references<CR>', opt)
 
 
 -- bufferline 左右Tab切换
-map('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>', opt)
-map('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>', opt)
-map('n', '<C-w>', '<cmd>bd<CR>', opt) -- close
-map('n', '<C-t>', '<cmd>enew<CR>', opt) -- new
+map('n', '<leader>[', '<cmd>BufferLineCyclePrev<CR>', opt)
+map('n', '<leader>]', '<cmd>BufferLineCycleNext<CR>', opt)
+map('n', '<leader>bc', '<cmd>bd<CR>', opt) -- close
+map('n', '<leader>bn', '<cmd>enew<CR>', opt) -- new
 
 
 -- nvimTree

@@ -18,10 +18,9 @@ require('setting.gruvbox')
 require("setting.winshift")
 require("setting.init-toggleterm")
 require("setting.vim-floaterm")
-require("setting.alpha-nvim")
--- require("setting.indent-blankline")
-require('setting.bufferline-nvim')
-require('setting.which-key')
+require('setting.init-vim-startify') -- dashboard
+require('setting.bufferline-nvim') -- bufferline
+require('setting.which-key') -- which-key
 require('setting.comment')
 require('setting.init-nvim-tree')
 require('setting.vim-translator')

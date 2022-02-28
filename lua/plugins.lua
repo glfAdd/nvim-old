@@ -18,7 +18,7 @@ require('packer').startup(function()
   use 'voldikss/vim-floaterm'
 
   -- UI
-  use 'goolord/alpha-nvim' -- dashboard
+  use 'mhinz/vim-startify' -- dashboard
   use 'akinsho/bufferline.nvim'
   use 'nvim-lualine/lualine.nvim' -- status line
   use 'folke/which-key.nvim'
