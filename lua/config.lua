@@ -40,3 +40,7 @@ require('setting.telescope-ui-select')
 require('setting.telescope-project')
 
 
+
+require('setting.init-gitsigns') -- git
+
+

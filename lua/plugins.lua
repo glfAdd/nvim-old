@@ -50,11 +50,6 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  -- code format
-  -- 方式1
-  use 'mhartington/formatter.nvim'
-  -- 方式2
-  use 'sbdchd/neoformat'
 
   -- dap
   use 'mfussenegger/nvim-dap'
@@ -90,9 +85,12 @@ require('packer').startup(function()
   use 'theHamsta/nvim-dap-virtual-text' -- 虚拟文本
   use 'voldikss/vim-translator' -- translat
   use 'numToStr/Comment.nvim' -- Comment 注释
-  use 'windwp/nvim-autopairs' -- 符号配对 []{}()''''
+  use 'windwp/nvim-autopairs' -- 符号配对 [] {} () '' ""
   use 'kyazdani42/nvim-tree.lua' -- filemanager
   use 'kdheepak/lazygit.nvim' -- lazygit
+  use 'lewis6991/gitsigns.nvim' -- git
+  use 'mhartington/formatter.nvim' -- code format
+  use 'sbdchd/neoformat' -- code format
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', } -- treesitter 语法高亮
   -- use { 'kevinhwang91/nvim-bqf', ft = 'qf' }

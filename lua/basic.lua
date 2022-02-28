@@ -1,5 +1,6 @@
 local vim = vim
 
+vim.g.python3_host_prog = "~/.pyenv/versions/p-3.9.2-neovim/bin/python" -- 设置 nvim 使用 python 的路径
 -- toggle use
 vim.o.hidden = true
 -- leader
@@ -7,10 +8,10 @@ vim.g.mapleader = ' '
 
 -- utf8
 vim.g.encoding = "UTF-8"
-vim.o.fileencoding = 'utf-8'
+vim.o.fileencoding = 'UTF-8'
 -- jk移动时光标下上方保留8行
-vim.o.scrolloff = 8
-vim.o.sidescrolloff = 8
+vim.o.scrolloff = 5
+vim.o.sidescrolloff = 5
 -- 使用相对行号
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -37,13 +38,13 @@ vim.o.smartindent = true
 -- 搜索大小写不敏感，除非包含大写
 vim.o.ignorecase = true
 vim.o.smartcase = true
--- 搜索不要高亮
-vim.o.hlsearch = false
+-- 搜索高亮
+vim.o.hlsearch = true
 -- 边输入边搜索
 vim.o.incsearch = true
 -- 使用增强状态栏后不再需要 vim 的模式提示
 vim.o.showmode = false
--- 命令行高为2，提供足够的显示空间
+-- 命令行高为2
 vim.o.cmdheight = 2
 -- 当文件被外部程序修改时，自动加载
 vim.o.autoread = true
@@ -76,10 +77,6 @@ vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.opt.termguicolors = true
 
--- 不可见字符的显示，这里只把空格显示为一个点
---vim.o.list = true
---vim.o.listchars = "space:·"
-
 -- 补全增强
 vim.o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
@@ -87,3 +84,5 @@ vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.pumheight = 10
 -- always show tabline
 vim.o.showtabline = 2
+
+vim.o.clipboard = "unnamedplus" -- 打通 nvim 和系统剪切板

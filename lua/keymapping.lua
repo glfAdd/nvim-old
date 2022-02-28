@@ -1,9 +1,6 @@
 local vim = vim
 local map = vim.api.nvim_set_keymap
-local opt = {
-  noremap = true,
-  silent = true
-}
+local opt = { noremap = true, silent = true }
 
 -- base setting
 map('n', '<C-u>', '9k', opt)
@@ -49,7 +46,6 @@ map('n', '<leader>d4', '<cmd>lua require"dap".run_last()<CR>', opt)
 -- dap ui
 map('n', '<leader>du', '<cmd>lua require("dapui").toggle()<CR>', opt)
 
---
 -- cmp
 -- map('n', '<CR>', ':cmp.mapping.confirm({ select = true })<CR>', opt)
 
@@ -61,7 +57,7 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opt)
 map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', opt)
 map('n', '<leader>fo', '<cmd>Telescope oldfiles<CR>', opt)
 map('n', '<leader>fp', '<cmd>Telescope project<CR>', opt)
--- map('n', '<leader>fm', ':Telescope media_files<CR>', opt)
+-- map('n', '<leader>fm', '<cmd>Telescope media_files<CR>', opt)
 
 
 -- error list
