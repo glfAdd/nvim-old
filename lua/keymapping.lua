@@ -59,7 +59,6 @@ map('n', '<leader>fo', '<cmd>Telescope oldfiles<CR>', opt)
 map('n', '<leader>fp', '<cmd>Telescope project<CR>', opt)
 -- map('n', '<leader>fm', '<cmd>Telescope media_files<CR>', opt)
 
-
 -- error list
 map('n', '<leader>xh', '<cmd>TroubleToggle<CR>', opt)
 map('n', '<leader>xw', '<cmd>Trouble workspace_diagnostics<CR>', opt)
@@ -68,21 +67,17 @@ map('n', '<leader>xl', '<cmd>Trouble loclist<CR>', opt)
 map('n', '<leader>xq', '<cmd>Trouble quickfix<CR>', opt)
 map('n', '<leader>xr', '<cmd>Trouble lsp_references<CR>', opt)
 
-
--- bufferline 左右Tab切换
+-- bufferline
 map('n', '<leader>[', '<cmd>BufferLineCyclePrev<CR>', opt)
 map('n', '<leader>]', '<cmd>BufferLineCycleNext<CR>', opt)
 map('n', '<leader>bc', '<cmd>bd<CR>', opt) -- close
 map('n', '<leader>bn', '<cmd>enew<CR>', opt) -- new
 
-
 -- nvimTree
 map('n', '<leader>tl', '<cmd>NvimTreeToggle<CR>', opt)
 
-
 -- fun map
 map('n', '<leader>tr', '<cmd>SymbolsOutline<CR>', opt)
-
 
 -- term toggle
 function _G.set_terminal_keymaps()
@@ -106,45 +101,16 @@ map('n', '<leader>tp', '<cmd>FloatermPrev<CR>', opt)
 map('n', '<leader>th', '<cmd>FloatermToggle<CR>', opt)
 map('n', '<leader>tk', '<cmd>FloatermKill<CR>', opt)
 
-
 -- translator
 map('n', '<leader>w', '<cmd>TranslateW<CR>', opt)
 
-
 -- undotree
 map('n', '<leader>tu', '<cmd>UndotreeToggle<CR>', opt)
-
 
 -- markdown preview
 -- map('n', '<leader>mb', '<cmd>MarkdownPreview<CR>', opt) -- 开始预览
 -- map('n', '<leader>ms', '<cmd>MarkdownPreviewStop<CR>', opt) -- 停止预览
 -- map('n', '<leader>mh', '<cmd>MarkdownPreviewToggle<CR>', opt) -- 隐藏
-
-
--- markdown
--- autocmd Filetype markdown inoremap <buffer> <silent> ;1 #<Space><Enter><++><Esc>kA
--- map('n', '<leader>1', '#<Space><Enter><++><Esc>kA', opt) -- 隐藏
-
--- autocmd Filetype markdown inoremap <buffer> <silent> ;, <++>
--- autocmd Filetype markdown inoremap <buffer> <silent> ;f <Esc>/<++><CR>:nohlsearch<CR>c4l
--- autocmd Filetype markdown nnoremap <buffer> <silent> ;f <Esc>/<++><CR>:nohlsearch<CR>c4l
--- autocmd Filetype markdown inoremap <buffer> <silent> ;s <Esc>/ <++><CR>:nohlsearch<CR>c5l
--- autocmd Filetype markdown inoremap <buffer> <silent> ;- ---<Enter><Enter>
--- autocmd Filetype markdown inoremap <buffer> <silent> ;b **** <++><Esc>F*hi
--- autocmd Filetype markdown inoremap <buffer> <silent> ;x ~~~~ <++><Esc>F~hi
--- autocmd Filetype markdown inoremap <buffer> <silent> ;x ** <++><Esc>F*i
--- autocmd Filetype markdown inoremap <buffer> <silent> ;q `` <++><Esc>F`i
--- autocmd Filetype markdown inoremap <buffer> <silent> ;c ```<Entr><++><Enter>```<Enter><Enter><++><Esc>4kA
--- autocmd Filetype markdown inoremap <buffer> <silent> ;g - [ ] <Enter><++><ESC>kA
--- autocmd Filetype markdown inoremap <buffer> <silent> ;u <u></u><++><Esc>F/hi
--- autocmd Filetype markdown inoremap <buffer> <silent> ;p ![](<++>) <Enter><++><Esc>kF[a
--- autocmd Filetype markdown inoremap <buffer> <silent> ;a [](<++>) <++><Esc>F[a
--- autocmd Filetype markdown inoremap <buffer> <silent> ;1 #<Space><Enter><++><Esc>kA
--- autocmd Filetype markdown inoremap <buffer> <silent> ;2 ##<Space><Enter><++><Esc>kA
--- autocmd Filetype markdown inoremap <buffer> <silent> ;3 ###<Space><Enter><++><Esc>kA
--- autocmd Filetype markdown inoremap <buffer> <silent> ;4 ####<Space><Enter><++><Esc>kA
--- autocmd Filetype markdown inoremap <buffer> <silent> ;t <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>e
-
 
 -- move window
 map('n', '<C-m>', '<cmd>WinShift<CR>', opt) -- move window
@@ -154,8 +120,7 @@ map('n', '<C-m>', '<cmd>WinShift<CR>', opt) -- move window
 map('n', '<C-s>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
 map('i', '<C-s>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
 
-
--- jdtls
+-- dap jdtls
 vim.cmd([[
 command! -nargs=0 OR   :lua require'jdtls'.organize_imports()
 command! -nargs=0 Format  :lua vim.lsp.buf.formatting()

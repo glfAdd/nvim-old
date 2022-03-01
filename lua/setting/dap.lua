@@ -7,4 +7,4 @@
 -- dap jvava config
 -- require('dap.ext.vscode').load_launchjs('/home/glfadd/.config/nvim/vscode-launch/java.json');
 -- dap python config
-require('dap.ext.vscode').load_launchjs('/home/glfadd/.config/nvim/vscode-launch/python.json');
+-- require('dap.ext.vscode').load_launchjs('/home/glfadd/.config/nvim/vscode-launch/python.json');

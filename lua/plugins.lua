@@ -1,5 +1,6 @@
 require('packer').startup(function()
   local use = use
+  local vim = vim
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -50,13 +51,11 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-
   -- dap
   use 'mfussenegger/nvim-dap'
   use 'mfussenegger/nvim-dap-python' -- dap pyhton
   use 'mfussenegger/nvim-jdtls' -- dap java
   use 'rcarriga/nvim-dap-ui'
-
 
   -- markdown
   -- use {
@@ -91,15 +90,13 @@ require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim' -- git
   use 'mhartington/formatter.nvim' -- code format
   use 'sbdchd/neoformat' -- code format
-
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', } -- treesitter 语法高亮
-  -- use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+  -- use { 'kevinhwang91/nvim-bqf', ft = 'qf' } -- quickfix 窗口
   -- use neovim in browser
   use {
     'glacambre/firenvim',
-    run = function()
-      vim.fn['firenvim#install'](0)
-    end
+    run = function() vim.fn['firenvim#install'](0) end
   }
+
 end)
 
