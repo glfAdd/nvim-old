@@ -77,6 +77,11 @@ require('packer').startup(function()
   use 'nvim-telescope/telescope-fzf-writer.nvim'
   use 'nvim-telescope/telescope-hop.nvim'
   use 'sudormrfbin/cheatsheet.nvim'
+  -- 搜做结果排序优化
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    requires = {"tami5/sqlite.lua"}
+  }
 
   -- tool
   use 'folke/trouble.nvim' -- error list
