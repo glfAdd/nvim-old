@@ -84,6 +84,8 @@ require('packer').startup(function()
   }
 
   -- tool
+  -- use 'p00f/nvim-ts-rainbow'
+  use 'dstein64/vim-startuptime' -- 启动时间统计
   use 'folke/trouble.nvim' -- error list
   use 'simrat39/symbols-outline.nvim' -- 右侧边栏函数, 变量
   use 'theHamsta/nvim-dap-virtual-text' -- 虚拟文本
