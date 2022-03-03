@@ -44,7 +44,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-vsnip' -- vsnip
   use 'hrsh7th/vim-vsnip' -- vsnip
   use 'onsails/lspkind-nvim' -- 代码补全提示的图标
-  -- use 'lukas-reineke/cmp-under-comparator' -- nvim-cmp 优化排序
+  use 'lukas-reineke/cmp-under-comparator' -- nvim-cmp 一个或多个下划线开头的完成项进行排序(效果待测试)
 
   -- 代码段 bilibili https://www.bilibili.com/s/video/BV1iL4y1B7gH
   -- 示例代码 https://www.codeleading.com/article/21256072499/
