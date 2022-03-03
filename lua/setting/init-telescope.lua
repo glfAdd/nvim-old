@@ -20,7 +20,7 @@ require('telescope').setup {
 
 require'telescope'.load_extension('fzf')
 require'telescope'.load_extension('dap')
-require'telescope'.load_extension('frecency') -- 搜做结果排序优化
+-- require'telescope'.load_extension('frecency') -- 搜做结果排序优化
 
 
 

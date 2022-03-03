@@ -78,13 +78,14 @@ require('packer').startup(function()
   use 'nvim-telescope/telescope-hop.nvim'
   use 'sudormrfbin/cheatsheet.nvim'
   -- 搜做结果排序优化
-  use {
-    "nvim-telescope/telescope-frecency.nvim",
-    requires = {"tami5/sqlite.lua"}
-  }
+  -- use {
+  --   "nvim-telescope/telescope-frecency.nvim",
+  --   requires = {"tami5/sqlite.lua"}
+  -- }
 
   -- tool
-  -- use 'p00f/nvim-ts-rainbow'
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- 语法高亮
+  use 'p00f/nvim-ts-rainbow' -- 彩虹括号 (nvim-treesitter 的扩展)
   use 'dstein64/vim-startuptime' -- 启动时间统计
   use 'folke/trouble.nvim' -- error list
   use 'simrat39/symbols-outline.nvim' -- 右侧边栏函数, 变量
@@ -97,7 +98,6 @@ require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim' -- git
   use 'mhartington/formatter.nvim' -- code format
   use 'sbdchd/neoformat' -- code format
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', } -- treesitter 语法高亮
   -- use { 'kevinhwang91/nvim-bqf', ft = 'qf' } -- quickfix 窗口
   -- use neovim in browser
   use {
