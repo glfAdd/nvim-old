@@ -1,5 +1,6 @@
 local cmp = require'cmp'
 
+
 cmp.setup {
   -- 设置引擎
   snippet = {
@@ -54,7 +55,7 @@ cmp.setup.cmdline(':', {
 })
 
 
--- lsp icon 
+-- 代码补全提示的图标
 local lspkind = require('lspkind')
 cmp.setup {
   formatting = {
@@ -69,3 +70,8 @@ cmp.setup {
     })
   }
 }
+
+-- 括号自动配对
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
