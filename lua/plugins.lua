@@ -32,6 +32,7 @@ require('packer').startup(function()
   use 'williamboman/nvim-lsp-installer' -- 方便的 lsp 安装工具
   use 'ray-x/lsp_signature.nvim' -- 函数参数提示
   use 'nvim-lua/lsp-status.nvim'
+  use 'glepnir/lspsaga.nvim' -- LSP 代码提示文档等浮动窗口
 
   -- nvim-cmp
   use 'rafamadriz/friendly-snippets'
@@ -94,7 +95,7 @@ require('packer').startup(function()
   use 'numToStr/Comment.nvim' -- Comment 注释
   use 'windwp/nvim-autopairs' -- 符号配对 [] {} () '' ""
   use 'kyazdani42/nvim-tree.lua' -- filemanager
-  use 'kdheepak/lazygit.nvim' -- lazygit
+  -- use 'kdheepak/lazygit.nvim' -- lazygit
   use 'lewis6991/gitsigns.nvim' -- git
   use 'mhartington/formatter.nvim' -- code format
   use 'sbdchd/neoformat' -- code format
@@ -104,6 +105,7 @@ require('packer').startup(function()
     'glacambre/firenvim',
     run = function() vim.fn['firenvim#install'](0) end
   }
+  use {'phaazon/hop.nvim', branch = 'v1'} -- 快速选择单词
 
 end)
 

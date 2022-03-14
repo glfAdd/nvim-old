@@ -1,6 +1,8 @@
 -- lsp
 require('setting.init-lsp')
 require('setting.init-lsp_signature')
+require('setting.init-lspsaga-nvim') -- LSP 代码提示文档等浮动窗口
+
 
 -- dap (自动加载 ftplugin 目录下 .lua 的语言配置文件)
 require('setting.init-dap')
@@ -11,6 +13,7 @@ require('setting.init-nvim-dap-virtual-text')
 require('setting.init-cmp')
 
 -- UI
+require('setting.init-nvim-web-devicons') -- 图标
 require('setting.init-gruvbox') -- color
 require('setting.init-vim-startify') -- dashboard
 require('setting.init-lualine') -- status line
@@ -42,5 +45,6 @@ require('setting.init-telescope-project')
 
 -- tool
 require('setting.init-gitsigns') -- git
+require('setting.init-hop-nvim') -- 快速选择单词
 
 
