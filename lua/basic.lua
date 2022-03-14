@@ -1,13 +1,13 @@
 local vim = vim
 
-vim.g.python3_host_prog = "~/.pyenv/versions/p-3.9.2-neovim/bin/python" -- 设置 nvim 使用 python 的路径
+vim.g.python3_host_prog = '~/.pyenv/versions/p-3.9.2-neovim/bin/python' -- 设置 nvim 使用 python 的路径
 -- toggle use
 vim.o.hidden = true
 -- leader
 vim.g.mapleader = ' '
 
 -- utf8
-vim.g.encoding = "UTF-8"
+vim.g.encoding = 'UTF-8'
 vim.o.fileencoding = 'UTF-8'
 -- jk移动时光标下上方保留8行
 vim.o.scrolloff = 5
@@ -18,9 +18,9 @@ vim.wo.relativenumber = true
 -- 高亮所在行
 vim.wo.cursorline = true
 -- 显示左侧图标指示列
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = 'yes'
 -- 右侧参考线，超过表示代码太长了，考虑换行
-vim.wo.colorcolumn = "120"
+vim.wo.colorcolumn = '120'
 -- 缩进2个空格等于一个Tab
 vim.o.tabstop = 2
 vim.bo.tabstop = 2
@@ -57,7 +57,7 @@ vim.o.whichwrap = 'b,s,<,>,[,],h,l'
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true
 -- 鼠标支持
-vim.o.mouse = "a"
+vim.o.mouse = 'a'
 -- 禁止创建备份文件
 vim.o.backup = false
 vim.o.writebackup = false
@@ -71,9 +71,9 @@ vim.o.timeoutlen = 300
 vim.o.splitbelow = true
 vim.o.splitright = true
 -- 自动补全不自动选中
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
+vim.g.completeopt = 'menu,menuone,noselect,noinsert'
 -- 样式
-vim.o.background = "dark"
+vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.opt.termguicolors = true
 
@@ -85,4 +85,4 @@ vim.o.pumheight = 10
 -- always show tabline
 vim.o.showtabline = 2
 
-vim.o.clipboard = "unnamedplus" -- 打通 nvim 和系统剪切板
+vim.o.clipboard = 'unnamedplus' -- 打通 nvim 和系统剪切板

@@ -49,7 +49,6 @@ map('n', '<leader>du', '<cmd>lua require("dapui").toggle()<CR>', opt)
 -- cmp
 -- map('n', '<CR>', ':cmp.mapping.confirm({ select = true })<CR>', opt)
 
-
 -- telescope
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', opt)
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opt)
@@ -117,8 +116,8 @@ map('n', '<C-m>', '<cmd>WinShift<CR>', opt) -- move window
 -- map('n', '<C-c>', '<cmd>WinShift swap<CR>', opt) -- swap window
 
 -- nvim-window
-map('n', '<C-s>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
-map('i', '<C-s>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
+map('n', '<C-p>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
+map('i', '<C-p>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
 
 -- dap jdtls
 vim.cmd([[

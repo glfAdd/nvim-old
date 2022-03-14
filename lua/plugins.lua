@@ -106,6 +106,7 @@ require('packer').startup(function()
     run = function() vim.fn['firenvim#install'](0) end
   }
   use {'phaazon/hop.nvim', branch = 'v1'} -- 快速选择单词
+  -- use 'junegunn/vim-easy-align'
 
 end)
 
