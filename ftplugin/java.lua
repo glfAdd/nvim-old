@@ -1,6 +1,6 @@
 local vim = vim
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = '/opt/neovim-dap/dap_auto_create' .. project_name
+local workspace_dir = '/opt/neovim-dap/dap_auto_create/' .. project_name
 local maver_setting = '/opt/apache-maven-3.8.1/conf/settings.xml'
 
 local bundles = {

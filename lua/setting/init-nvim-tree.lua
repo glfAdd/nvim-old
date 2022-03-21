@@ -1,9 +1,10 @@
 require'nvim-tree'.setup {
   auto_close = true, -- 关闭文件时自动关闭
+  sort_by = "name",
   view = {
     width = 40,
     height = 30,
-    hide_root_folder = true, -- 隐藏顶部的根目录显示
+    hide_root_folder = false, -- 隐藏顶部的根目录显示
     auto_resize = true, -- 自动调整大小
     side = 'left'
   },

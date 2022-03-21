@@ -27,7 +27,7 @@ require('setting.init-symbols-outline')
 require('setting.init-trouble')
 require('setting.init-nvim-treesitter')
 require('setting.init-nvim-autopairs')
-require('setting.init-rnvimr')
+require('setting.init-rnvimr') -- range
 
 -- terminal
 require("setting.init-toggleterm")

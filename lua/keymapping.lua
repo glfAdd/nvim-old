@@ -5,7 +5,6 @@ local opt = { noremap = true, silent = true }
 -- base setting
 map('n', '<C-u>', '9k', opt)
 map('n', '<C-d>', '9j', opt)
-
 map('v', '<', '<gv', opt)
 map('v', '>', '>gv', opt)
 
@@ -99,6 +98,9 @@ map('n', '<leader>tn', '<cmd>FloatermNext<CR>', opt)
 map('n', '<leader>tp', '<cmd>FloatermPrev<CR>', opt)
 map('n', '<leader>th', '<cmd>FloatermToggle<CR>', opt)
 map('n', '<leader>tk', '<cmd>FloatermKill<CR>', opt)
+
+-- range
+map('n', '<leader>tf', '<cmd>RnvimrToggle<CR>', opt)
 
 -- translator
 map('n', '<leader>w', '<cmd>TranslateW<CR>', opt)

@@ -108,5 +108,6 @@ require('packer').startup(function()
   use {'phaazon/hop.nvim', branch = 'v1'} -- 快速选择单词
   -- use 'junegunn/vim-easy-align'
 
+
 end)
 
