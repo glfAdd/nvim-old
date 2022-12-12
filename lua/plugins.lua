@@ -142,21 +142,28 @@ return require('packer').startup(function(use)
   }
   -- ranger
   use{ 'kevinhwang91/rnvimr', lock = is_lock }
+  -- code format
+  use{ 'mhartington/formatter.nvim', lock = is_lock }
+  -- code format
+  use{ 'sbdchd/neoformat', lock = is_lock }
+  -- lazygit
+  use{ 'kdheepak/lazygit.nvim', lock = is_lock }
+  -- git
+  use{ 'lewis6991/gitsigns.nvim', lock = is_lock }
+  -- Comment 注释
+  use{ 'numToStr/Comment.nvim', lock = is_lock }
+  -- translat
+  use{ 'voldikss/vim-translator', lock = is_lock }
+  -- 虚拟文本
+  use{ 'theHamsta/nvim-dap-virtual-text', lock = is_lock }
+  -- 文本对齐
+  use{ 'junegunn/vim-easy-align', lock = is_lock }
 
-
---  use 'theHamsta/nvim-dap-virtual-text' -- 虚拟文本
---  use 'voldikss/vim-translator' -- translat
---  use 'numToStr/Comment.nvim' -- Comment 注释
---  use 'kdheepak/lazygit.nvim' -- lazygit
---  use 'lewis6991/gitsigns.nvim' -- git
---  use 'mhartington/formatter.nvim' -- code format
---  use 'sbdchd/neoformat' -- code format
 -- use neovim in browser
 --  use {
 --    'glacambre/firenvim',
 --    run = function() vim.fn['firenvim#install'](0) end
 --  }
- -- use 'junegunn/vim-easy-align'
 
 -- markdown
 -- use {
