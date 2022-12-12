@@ -2,14 +2,15 @@ local vim = vim
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
 
--- base setting
+
+-- ########################################################## base setting
 map('n', '<C-u>', '9k', opt)
 map('n', '<C-d>', '9j', opt)
 map('v', '<', '<gv', opt)
 map('v', '>', '>gv', opt)
 
 
--- lsp
+-- ########################################################## lsp
 -- map('n', '<leader>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
@@ -29,7 +30,7 @@ map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opt) -- document
 -- map('n', '<leader>lca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
 
 
--- dap
+-- ########################################################## dap
 map('n', '<leader>dc', '<cmd>lua require"dap".continue()<CR>', opt)
 map('n', '<leader>dk', '<cmd>lua require"dap".step_over()<CR>', opt)
 map('n', '<leader>di', '<cmd>lua require"dap".step_into()<CR>', opt)
@@ -45,10 +46,12 @@ map('n', '<leader>d4', '<cmd>lua require"dap".run_last()<CR>', opt)
 -- dap ui
 map('n', '<leader>du', '<cmd>lua require("dapui").toggle()<CR>', opt)
 
--- cmp
+
+-- ########################################################## cmp
 -- map('n', '<CR>', ':cmp.mapping.confirm({ select = true })<CR>', opt)
 
--- telescope
+
+-- ########################################################## telescope
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', opt)
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opt)
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opt)
@@ -57,7 +60,8 @@ map('n', '<leader>fo', '<cmd>Telescope oldfiles<CR>', opt)
 map('n', '<leader>fp', '<cmd>Telescope project<CR>', opt)
 -- map('n', '<leader>fm', '<cmd>Telescope media_files<CR>', opt)
 
--- error list
+
+-- ########################################################## error list
 map('n', '<leader>xh', '<cmd>TroubleToggle<CR>', opt)
 map('n', '<leader>xw', '<cmd>Trouble workspace_diagnostics<CR>', opt)
 map('n', '<leader>xd', '<cmd>Trouble document_diagnostics<CR>', opt)
@@ -65,19 +69,23 @@ map('n', '<leader>xl', '<cmd>Trouble loclist<CR>', opt)
 map('n', '<leader>xq', '<cmd>Trouble quickfix<CR>', opt)
 map('n', '<leader>xr', '<cmd>Trouble lsp_references<CR>', opt)
 
--- bufferline
+
+-- ########################################################## bufferline
 map('n', '<leader>[', '<cmd>BufferLineCyclePrev<CR>', opt)
 map('n', '<leader>]', '<cmd>BufferLineCycleNext<CR>', opt)
 map('n', '<leader>bc', '<cmd>bd<CR>', opt) -- close
 map('n', '<leader>bn', '<cmd>enew<CR>', opt) -- new
 
--- nvimTree
+
+-- ########################################################## nvimTree
 map('n', '<leader>tl', '<cmd>NvimTreeToggle<CR>', opt)
 
--- fun map
+
+-- ########################################################## fun map
 map('n', '<leader>tr', '<cmd>SymbolsOutline<CR>', opt)
 
--- term toggle
+
+-- ########################################################## term toggle
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
@@ -92,36 +100,43 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 map('n', '<leader>ht', ':ToggleTermToggleAll<CR>', opt)
 
 
--- term 2
+-- ########################################################## term 2
 map('n', '<leader>tt', '<cmd>FloatermNew<CR>', opt)
 map('n', '<leader>tn', '<cmd>FloatermNext<CR>', opt)
 map('n', '<leader>tp', '<cmd>FloatermPrev<CR>', opt)
 map('n', '<leader>th', '<cmd>FloatermToggle<CR>', opt)
 map('n', '<leader>tk', '<cmd>FloatermKill<CR>', opt)
 
--- range
+
+-- ########################################################## range
 map('n', '<leader>tf', '<cmd>RnvimrToggle<CR>', opt)
 
--- translator
+
+-- ########################################################## translator
 map('n', '<leader>w', '<cmd>TranslateW<CR>', opt)
 
--- undotree
+
+-- ########################################################## undotree
 map('n', '<leader>tu', '<cmd>UndotreeToggle<CR>', opt)
 
--- markdown preview
+
+-- ########################################################## markdown preview
 -- map('n', '<leader>mb', '<cmd>MarkdownPreview<CR>', opt) -- 开始预览
 -- map('n', '<leader>ms', '<cmd>MarkdownPreviewStop<CR>', opt) -- 停止预览
 -- map('n', '<leader>mh', '<cmd>MarkdownPreviewToggle<CR>', opt) -- 隐藏
 
--- move window
+
+-- ########################################################## move window
 map('n', '<C-m>', '<cmd>WinShift<CR>', opt) -- move window
 -- map('n', '<C-c>', '<cmd>WinShift swap<CR>', opt) -- swap window
 
--- nvim-window
+
+-- ########################################################## nvim-window
 map('n', '<C-p>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
 map('i', '<C-p>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
 
--- dap jdtls
+
+-- ########################################################## dap jdtls
 vim.cmd([[
 command! -nargs=0 OR   :lua require'jdtls'.organize_imports()
 command! -nargs=0 Format  :lua vim.lsp.buf.formatting()

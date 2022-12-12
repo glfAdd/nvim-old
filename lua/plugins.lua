@@ -3,7 +3,9 @@ return require('packer').startup(function(use)
   local is_disable = true
 
 
-  -- ############################################ dependent
+  -- ##########################################################
+  -- dependent
+  -- ##########################################################
   -- Packer can manage itself
   use {'wbthomason/packer.nvim', lock=is_lock}
   use {'kyazdani42/nvim-web-devicons', lock=is_lock}
@@ -11,7 +13,9 @@ return require('packer').startup(function(use)
   use {'nvim-lua/popup.nvim', lock=is_lock}
 
 
-  -- ############################################ UI
+  -- ##########################################################
+  -- UI
+  -- ##########################################################
   -- dashboard
   use { 'mhinz/vim-startify', lock = is_lock,
     config = function() require("setting.init-vim-startify") end
@@ -22,7 +26,9 @@ return require('packer').startup(function(use)
   }
 
 
-  -- ############################################ LSP
+  -- ##########################################################
+  -- LSP
+  -- ##########################################################
   use{ 'neovim/nvim-lspconfig', lock = is_lock,
     config = function() require("setting.init-lsp") end
   }
@@ -42,7 +48,9 @@ return require('packer').startup(function(use)
   }
 
 
-  -- ############################################ CMP
+  -- ##########################################################
+  -- CMP
+  -- ##########################################################
   -- Neovim 内置 LSP 客户端的 nvim-cmp 源
   use{ 'hrsh7th/cmp-nvim-lsp', lock = is_lock }
   -- 缓冲区的 nvim-cmp 源
@@ -66,7 +74,9 @@ return require('packer').startup(function(use)
 
 
 
-  -- ############################################ DAP
+  -- ##########################################################
+  -- DAP
+  -- ##########################################################
   use{ 'mfussenegger/nvim-dap', lock = is_lock,
     --config = function() require("setting.init-dap") end  -- 打开这个配置有问题
   }
@@ -76,7 +86,9 @@ return require('packer').startup(function(use)
 --  use 'mfussenegger/nvim-jdtls' -- dap java
 
 
-  -- ############################################ 望远镜
+  -- ##########################################################
+  -- 望远镜
+  -- ##########################################################
   use{ 'nvim-telescope/telescope.nvim', lock = is_lock }
   use{ 'nvim-telescope/telescope-project.nvim', lock = is_lock }
   use{ 'nvim-telescope/telescope-dap.nvim', lock = is_lock }
@@ -90,20 +102,26 @@ return require('packer').startup(function(use)
 
 
 
-  -- ############################################ window
+  -- ##########################################################
+  -- window
+  -- ##########################################################
 --  use{ 'sindrets/winshift.nvim', lock = is_lock } -- window change
 --  use{ 'https://gitlab.com/yorickpeterse/nvim-window', lock = is_lock } -- 编号选择窗口
 --  use{ 'hoschi/yode-nvim', lock = is_lock } -- 有问题
 
 
 
-  -- ############################################ terminal
+  -- ##########################################################
+  -- terminal
+  -- ##########################################################
   use{ 'akinsho/toggleterm.nvim', lock = is_lock }
   use{ 'voldikss/vim-floaterm', lock = is_lock }
 
 
 
-  -- ############################################ TOOL
+  -- ##########################################################
+  -- TOOL
+  -- ##########################################################
   -- 上面 buffer
   use{ 'akinsho/bufferline.nvim', lock = is_lock,
     config = function() require("setting.init-bufferline-nvim") end
