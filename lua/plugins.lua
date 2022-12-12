@@ -22,30 +22,6 @@ return require('packer').startup(function(use)
   }
 
 
-  -- ############################################ TOOL
-  -- 上面 buffer
-  use{ 'akinsho/bufferline.nvim', lock = is_lock,
-    config = function() require("setting.init-bufferline-nvim") end
-  }
-  -- 下面 status
-  use{ 'nvim-lualine/lualine.nvim', lock = is_lock,
-    config = function() require("setting.init-lualine") end
-  }
-  -- 文件管理
-  use{ 'kyazdani42/nvim-tree.lua', lock = is_lock,
-    config = function() require("setting.init-nvim-tree") end
-  }
-  -- 快捷键提示
-  use { 'folke/which-key.nvim', lock = is_lock,
-    config = function() require("setting.init-which-key") end
-  }
-  -- 缩进线
---  use{
---    'lukas-reineke/indent-blankline.nvim', lock = is_lock,
---    disable = is_disable
---  }
-
-
   -- ############################################ LSP
   use{ 'neovim/nvim-lspconfig', lock = is_lock,
     config = function() require("setting.init-lsp") end
@@ -89,6 +65,7 @@ return require('packer').startup(function(use)
   use{ 'saadparwaiz1/cmp_luasnip', lock = is_lock }
 
 
+
   -- ############################################ DAP
   use{ 'mfussenegger/nvim-dap', lock = is_lock,
     --config = function() require("setting.init-dap") end  -- 打开这个配置有问题
@@ -97,8 +74,6 @@ return require('packer').startup(function(use)
   -- python
   use{ 'mfussenegger/nvim-dap-python', lock = is_lock }
 --  use 'mfussenegger/nvim-jdtls' -- dap java
-
-
 
 
   -- ############################################ 望远镜
@@ -110,25 +85,79 @@ return require('packer').startup(function(use)
   use{ 'nvim-telescope/telescope-fzf-writer.nvim', lock = is_lock }
   use{ 'nvim-telescope/telescope-hop.nvim', lock = is_lock }
   use{ 'sudormrfbin/cheatsheet.nvim', lock = is_lock }
-  -- 搜做结果排序优化
-  use { 'tami5/sqlite.lua', lock = false }
-  use { 'nvim-telescope/telescope-frecency.nvim', lock = false }
+--  use{ 'tami5/sqlite.lua', lock = is_lock } -- 搜做结果排序优化 (依赖)
+--  use{ 'nvim-telescope/telescope-frecency.nvim', lock = is_lock } -- 搜做结果排序优化
 
 
 
+  -- ############################################ window
+--  use{ 'sindrets/winshift.nvim', lock = is_lock } -- window change
+--  use{ 'https://gitlab.com/yorickpeterse/nvim-window', lock = is_lock } -- 编号选择窗口
+--  use{ 'hoschi/yode-nvim', lock = is_lock } -- 有问题
 
---  use 'kevinhwang91/rnvimr' -- ranger
 
---
---  -- window
---  use 'sindrets/winshift.nvim' -- window change
---  use 'hoschi/yode-nvim' -- move window
---  use 'https://gitlab.com/yorickpeterse/nvim-window' -- pick window
---
---  -- terminal
---  use 'akinsho/toggleterm.nvim'
---  use 'voldikss/vim-floaterm'
---
+
+  -- ############################################ terminal
+  use{ 'akinsho/toggleterm.nvim', lock = is_lock }
+  use{ 'voldikss/vim-floaterm', lock = is_lock }
+
+
+
+  -- ############################################ TOOL
+  -- 上面 buffer
+  use{ 'akinsho/bufferline.nvim', lock = is_lock,
+    config = function() require("setting.init-bufferline-nvim") end
+  }
+  -- 下面 status
+  use{ 'nvim-lualine/lualine.nvim', lock = is_lock,
+    config = function() require("setting.init-lualine") end
+  }
+  -- 文件管理
+  use{ 'kyazdani42/nvim-tree.lua', lock = is_lock,
+    config = function() require("setting.init-nvim-tree") end
+  }
+  -- 快捷键提示
+  use { 'folke/which-key.nvim', lock = is_lock,
+    config = function() require("setting.init-which-key") end
+  }
+  -- 语法高亮
+  use{
+    'nvim-treesitter/nvim-treesitter',
+    lock = is_lock,
+    run = ':TSUpdate'
+  }
+  -- 启动时间统计
+  use{ 'dstein64/vim-startuptime', lock = is_lock }
+  -- error list
+  use{ 'folke/trouble.nvim', lock = is_lock }
+  -- 右侧边栏函数, 变量
+  use{ 'simrat39/symbols-outline.nvim', lock = is_lock }
+  -- quickfix 窗口
+  use{ 'kevinhwang91/nvim-bqf', lock = is_lock,
+    ft = 'qf'
+  }
+  -- 快速选择单词
+  use{'phaazon/hop.nvim', lock = is_lock,
+    branch = 'v1'
+  }
+  -- ranger
+  use{ 'kevinhwang91/rnvimr', lock = is_lock }
+
+
+--  use 'theHamsta/nvim-dap-virtual-text' -- 虚拟文本
+--  use 'voldikss/vim-translator' -- translat
+--  use 'numToStr/Comment.nvim' -- Comment 注释
+--  use 'kdheepak/lazygit.nvim' -- lazygit
+--  use 'lewis6991/gitsigns.nvim' -- git
+--  use 'mhartington/formatter.nvim' -- code format
+--  use 'sbdchd/neoformat' -- code format
+-- use neovim in browser
+--  use {
+--    'glacambre/firenvim',
+--    run = function() vim.fn['firenvim#install'](0) end
+--  }
+ -- use 'junegunn/vim-easy-align'
+
 -- markdown
 -- use {
 --   'preservim/vim-markdown',
@@ -138,31 +167,6 @@ return require('packer').startup(function(use)
 --   -- end
 -- }
 -- use 'iamcco/markdown-preview.nvim' -- 浏览器预览 markdown
---
---
---
---  -- tool
---  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- 语法高亮
---  use 'p00f/nvim-ts-rainbow' -- 彩虹括号 (nvim-treesitter 的扩展)
---  use 'dstein64/vim-startuptime' -- 启动时间统计
---  use 'folke/trouble.nvim' -- error list
---  use 'simrat39/symbols-outline.nvim' -- 右侧边栏函数, 变量
---  use 'theHamsta/nvim-dap-virtual-text' -- 虚拟文本
---  use 'voldikss/vim-translator' -- translat
---  use 'numToStr/Comment.nvim' -- Comment 注释
---  use 'windwp/nvim-autopairs' -- 符号配对 [] {} () '' ""
---  -- use 'kdheepak/lazygit.nvim' -- lazygit
---  use 'lewis6991/gitsigns.nvim' -- git
---  use 'mhartington/formatter.nvim' -- code format
---  use 'sbdchd/neoformat' -- code format
---  -- use { 'kevinhwang91/nvim-bqf', ft = 'qf' } -- quickfix 窗口
---  -- use neovim in browser
---  use {
---    'glacambre/firenvim',
---    run = function() vim.fn['firenvim#install'](0) end
---  }
---  use {'phaazon/hop.nvim', branch = 'v1'} -- 快速选择单词
---  -- use 'junegunn/vim-easy-align'
 
 
 end)
