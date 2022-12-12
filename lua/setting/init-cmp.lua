@@ -40,7 +40,7 @@ cmp.setup {
         cmp.config.compare.offset,
         cmp.config.compare.exact,
         cmp.config.compare.score,
-        require "cmp-under-comparator".under,
+        --require "cmp-under-comparator".under,
         cmp.config.compare.kind,
         cmp.config.compare.sort_text,
         cmp.config.compare.length,
@@ -85,6 +85,6 @@ cmp.setup {
 }
 
 -- 括号自动配对
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
-cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+--local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+--cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+--cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"

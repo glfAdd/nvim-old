@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
   use{ 'hrsh7th/cmp-path', lock = is_lock }
   use{ 'hrsh7th/cmp-cmdline', lock = is_lock }
   use{ 'hrsh7th/nvim-cmp', lock = is_lock,
---    config = function() require("setting.init-cmp") end -- 这个有问题
+    config = function() require("setting.init-cmp") end
   }
   -- Neovim Lua API 的 nvim-cmp 源
   use{ 'hrsh7th/cmp-nvim-lua', lock = is_lock }
