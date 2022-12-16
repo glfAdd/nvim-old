@@ -8,7 +8,9 @@ return require('packer').startup(function(use)
   -- ##########################################################
   -- Packer can manage itself
   use {'wbthomason/packer.nvim', lock=is_lock}
-  use {'kyazdani42/nvim-web-devicons', lock=is_lock}
+  use {'kyazdani42/nvim-web-devicons', lock=is_lock,
+    config = function() require("setting.init-nvim-web-devicons") end
+  }
   use {'nvim-lua/plenary.nvim', lock=is_lock}
   use {'nvim-lua/popup.nvim', lock=is_lock}
 
@@ -33,14 +35,11 @@ return require('packer').startup(function(use)
     config = function() require("setting.init-lsp") end
   }
   -- 方便的 lsp 安装工具
-  use{ 'williamboman/nvim-lsp-installer', lock = is_lock,
-    config = function() require("setting.init-lsp") end
-  }
+  use{ 'williamboman/nvim-lsp-installer', lock = is_lock }
   -- 函数参数提示
   use{ 'ray-x/lsp_signature.nvim', lock = is_lock,
     config = function() require("setting.init-lsp_signature") end
   }
-
   use{ 'nvim-lua/lsp-status.nvim', lock = is_lock }
   -- LSP 代码提示文档等浮动窗口
   use{ 'glepnir/lspsaga.nvim', lock = is_lock,
@@ -73,14 +72,18 @@ return require('packer').startup(function(use)
   use{ 'saadparwaiz1/cmp_luasnip', lock = is_lock }
 
 
-
   -- ##########################################################
   -- DAP
   -- ##########################################################
   use{ 'mfussenegger/nvim-dap', lock = is_lock,
-    --config = function() require("setting.init-dap") end  -- 打开这个配置有问题
+    config = function() require("setting.init-dap") end  -- 打开这个配置有问题
   }
-  use{ 'rcarriga/nvim-dap-ui', lock = is_lock }
+  use{ 'rcarriga/nvim-dap-ui', lock = is_lock,
+    config = function() require("setting.init-dap-ui") end
+  }
+  -- 虚拟文本
+  --  dap (自动加载 ftplugin 目录下 .lua 的语言配置文件)
+  use{ 'theHamsta/nvim-dap-virtual-text', lock = is_lock }
   -- python
   use{ 'mfussenegger/nvim-dap-python', lock = is_lock }
 --  use 'mfussenegger/nvim-jdtls' -- dap java
@@ -101,7 +104,6 @@ return require('packer').startup(function(use)
 --  use{ 'nvim-telescope/telescope-frecency.nvim', lock = is_lock } -- 搜做结果排序优化
 
 
-
   -- ##########################################################
   -- window
   -- ##########################################################
@@ -110,13 +112,11 @@ return require('packer').startup(function(use)
 --  use{ 'hoschi/yode-nvim', lock = is_lock } -- 有问题
 
 
-
   -- ##########################################################
   -- terminal
   -- ##########################################################
   use{ 'akinsho/toggleterm.nvim', lock = is_lock }
   use{ 'voldikss/vim-floaterm', lock = is_lock }
-
 
 
   -- ##########################################################
@@ -172,8 +172,6 @@ return require('packer').startup(function(use)
   use{ 'numToStr/Comment.nvim', lock = is_lock }
   -- translat
   use{ 'voldikss/vim-translator', lock = is_lock }
-  -- 虚拟文本
-  use{ 'theHamsta/nvim-dap-virtual-text', lock = is_lock }
   -- 文本对齐
   use{ 'junegunn/vim-easy-align', lock = is_lock }
 
