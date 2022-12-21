@@ -5,66 +5,76 @@ cmp.setup {
   -- 设置引擎
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
 
   -- 来源
   sources = cmp.config.sources({
-  {name = 'vsnip'},
-  {name = "nvim_lsp" },
-  {name = "nvim_lua" },
-  {name = "path" },
-  {name = "spell" },
-  {name = "tmux" },
-  {name = "orgmode" },
-  {name = "buffer" },
-  {name = "latex_symbols" },
+    -- { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+    { name = 'luasnip' }, -- For luasnip users.
+    {name = "nvim_lsp" },
+    {name = "nvim_lua" },
+    {name = "path" },
+    {name = "spell" },
+    {name = "tmux" },
+    {name = "orgmode" },
+    {name = "buffer" },
+    {name = "latex_symbols" },
   }),
 
-  -- key manping
-  mapping = {
-      ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-      ['<C-e>'] = cmp.mapping({
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      }),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
   },
 
-  sorting = {
-    comparators = {
-        cmp.config.compare.offset,
-        cmp.config.compare.exact,
-        cmp.config.compare.score,
-        --require "cmp-under-comparator".under,
-        cmp.config.compare.kind,
-        cmp.config.compare.sort_text,
-        cmp.config.compare.length,
-        cmp.config.compare.order,
-    },
-  },
+  -- key manping
+  mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+
+  -- sorting = {
+  --   comparators = {
+  --       cmp.config.compare.offset,
+  --       cmp.config.compare.exact,
+  --       cmp.config.compare.score,
+  --       --require "cmp-under-comparator".under,
+  --       cmp.config.compare.kind,
+  --       cmp.config.compare.sort_text,
+  --       cmp.config.compare.length,
+  --       cmp.config.compare.order,
+  --   },
+  -- },
 }
 
 
--- Use buffer source for `/`.
-cmp.setup.cmdline('/', {
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' }
   }
 })
 
 
--- Use cmdline & path source for ':'.
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = 'path' }
   }, {
-      { name = 'cmdline' }
-    })
+    { name = 'cmdline' }
+  })
 })
 
 

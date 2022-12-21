@@ -1,6 +1,5 @@
 return require('packer').startup(function(use)
   local is_lock = true
-  local is_disable = true
 
 
   -- ##########################################################
@@ -16,7 +15,7 @@ return require('packer').startup(function(use)
 
 
   -- ##########################################################
-  -- UI
+  -- ui
   -- ##########################################################
   -- dashboard
   use { 'mhinz/vim-startify', lock = is_lock,
@@ -29,12 +28,13 @@ return require('packer').startup(function(use)
 
 
   -- ##########################################################
-  -- LSP
+  -- lsp 
   -- ##########################################################
+  -- base
   use{ 'neovim/nvim-lspconfig', lock = is_lock,
     config = function() require("setting.init-lsp") end
   }
-  -- 方便的 lsp 安装工具
+  -- lsp 安装工具
   use{ 'williamboman/nvim-lsp-installer', lock = is_lock }
   -- 函数参数提示
   use{ 'ray-x/lsp_signature.nvim', lock = is_lock,
@@ -48,13 +48,10 @@ return require('packer').startup(function(use)
 
 
   -- ##########################################################
-  -- CMP
+  -- cmp
   -- ##########################################################
-  -- Neovim 内置 LSP 客户端的 nvim-cmp 源
   use{ 'hrsh7th/cmp-nvim-lsp', lock = is_lock }
-  -- 缓冲区的 nvim-cmp 源
   use{ 'hrsh7th/cmp-buffer', lock = is_lock }
-  -- 文件系统路径的 nvim-cmp 源
   use{ 'hrsh7th/cmp-path', lock = is_lock }
   use{ 'hrsh7th/cmp-cmdline', lock = is_lock }
   use{ 'hrsh7th/nvim-cmp', lock = is_lock,
@@ -73,10 +70,10 @@ return require('packer').startup(function(use)
 
 
   -- ##########################################################
-  -- DAP
+  -- dap
   -- ##########################################################
   use{ 'mfussenegger/nvim-dap', lock = is_lock,
-    config = function() require("setting.init-dap") end  -- 打开这个配置有问题
+    config = function() require("setting.init-dap") end
   }
   use{ 'rcarriga/nvim-dap-ui', lock = is_lock,
     config = function() require("setting.init-dap-ui") end
@@ -120,7 +117,7 @@ return require('packer').startup(function(use)
 
 
   -- ##########################################################
-  -- TOOL
+  -- tool
   -- ##########################################################
   -- 上面 buffer
   use{ 'akinsho/bufferline.nvim', lock = is_lock,
@@ -139,9 +136,7 @@ return require('packer').startup(function(use)
     config = function() require("setting.init-which-key") end
   }
   -- 语法高亮
-  use{
-    'nvim-treesitter/nvim-treesitter',
-    lock = is_lock,
+  use{ 'nvim-treesitter/nvim-treesitter', lock = is_lock,
     run = ':TSUpdate'
   }
   -- 启动时间统计
