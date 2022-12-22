@@ -17,7 +17,7 @@ cmp.setup {
     -- { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-    { name = 'luasnip' }, -- For luasnip users.
+    {name = 'luasnip' }, -- For luasnip users.
     {name = "nvim_lsp" },
     {name = "nvim_lua" },
     {name = "path" },
@@ -26,6 +26,14 @@ cmp.setup {
     {name = "orgmode" },
     {name = "buffer" },
     {name = "latex_symbols" },
+    { name = 'look',
+            keyword_length = 2,
+            option = {
+                convert_case = true,
+                loud = true,
+                dict = '/usr/share/dict/words'
+            }
+        }
   }),
 
   window = {

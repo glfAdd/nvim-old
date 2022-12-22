@@ -18,12 +18,16 @@ return require('packer').startup(function(use)
   -- ui
   -- ##########################################################
   -- dashboard
-  use { 'mhinz/vim-startify', lock = is_lock,
-    config = function() require("setting.init-vim-startify") end
+  use { 'goolord/alpha-nvim', lock = is_lock,
+    config = function() require("setting.init-alpha-nvim") end
   }
   -- color theme
   use{ 'ellisonleao/gruvbox.nvim', lock = is_lock,
     config = function() require("setting.init-gruvbox") end
+  }
+  -- 通知栏
+  use { 'rcarriga/nvim-notify', lock = is_lock,
+    config = function() require("setting.init-nvim-notify") end
   }
 
 
@@ -41,7 +45,7 @@ return require('packer').startup(function(use)
     config = function() require("setting.init-lsp_signature") end
   }
   use{ 'nvim-lua/lsp-status.nvim', lock = is_lock }
-  -- LSP 代码提示文档等浮动窗口
+  -- LSP UI 增强
   use{ 'glepnir/lspsaga.nvim', lock = is_lock,
     config = function() require("setting.init-lspsaga-nvim") end
   }
@@ -50,23 +54,29 @@ return require('packer').startup(function(use)
   -- ##########################################################
   -- cmp
   -- ##########################################################
+  use{ 'hrsh7th/nvim-cmp', lock = is_lock,
+    config = function() require("setting.init-cmp") end
+  }
   use{ 'hrsh7th/cmp-nvim-lsp', lock = is_lock }
   use{ 'hrsh7th/cmp-buffer', lock = is_lock }
   use{ 'hrsh7th/cmp-path', lock = is_lock }
   use{ 'hrsh7th/cmp-cmdline', lock = is_lock }
-  use{ 'hrsh7th/nvim-cmp', lock = is_lock,
-    config = function() require("setting.init-cmp") end
-  }
   -- Neovim Lua API 的 nvim-cmp 源
   use{ 'hrsh7th/cmp-nvim-lua', lock = is_lock }
-  -- 代码补全提示的图标
+  -- 显示表情 待验证
+  use {'hrsh7th/cmp-emoji', lock = is_lock}
+  -- 美化
   use{ 'onsails/lspkind-nvim', lock = is_lock }
---  use 'lukas-reineke/cmp-under-comparator' -- nvim-cmp 一个或多个下划线开头的完成项进行排序(效果待测试)
+  -- nvim-cmp 一个或多个下划线开头的完成项进行排序(效果待测试)
+--  use 'lukas-reineke/cmp-under-comparator' 
   use{ 'rafamadriz/friendly-snippets', lock = is_lock }
   -- 代码段 bilibili https://www.bilibili.com/s/video/BV1iL4y1B7gH
   -- 示例代码 https://www.codeleading.com/article/21256072499/
   use{ 'L3MON4D3/LuaSnip', lock = is_lock }
   use{ 'saadparwaiz1/cmp_luasnip', lock = is_lock }
+  -- 单词拼写(字典提示插件) 待验证
+  use { 'octaltree/cmp-look', lock = is_lock}
+  -- xians
 
 
   -- ##########################################################
@@ -136,13 +146,13 @@ return require('packer').startup(function(use)
     config = function() require("setting.init-which-key") end
   }
   -- 语法高亮
-  use{ 'nvim-treesitter/nvim-treesitter', lock = is_lock,
-    run = ':TSUpdate'
-  }
+  use{ 'nvim-treesitter/nvim-treesitter', lock = is_lock }
   -- 启动时间统计
   use{ 'dstein64/vim-startuptime', lock = is_lock }
   -- error list
-  use{ 'folke/trouble.nvim', lock = is_lock }
+  use{ 'folke/trouble.nvim', lock = is_lock,
+    config = function() require("setting.init-trouble") end
+  }
   -- 右侧边栏函数, 变量
   use{ 'simrat39/symbols-outline.nvim', lock = is_lock }
   -- quickfix 窗口
@@ -169,6 +179,8 @@ return require('packer').startup(function(use)
   use{ 'voldikss/vim-translator', lock = is_lock }
   -- 文本对齐
   use{ 'junegunn/vim-easy-align', lock = is_lock }
+  -- undo tree
+  use { 'mbbill/undotree', lock = is_lock}
 
 -- use neovim in browser
 --  use {

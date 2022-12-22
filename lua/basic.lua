@@ -1,6 +1,6 @@
 local vim = vim
 
-vim.g.python3_host_prog = '~/.pyenv/versions/p-3.9.2-neovim/bin/python' -- 设置 nvim 使用 python 的路径
+--vim.g.python3_host_prog = '~/.pyenv/versions/p-3.9.2-neovim/bin/python' -- 设置 nvim 使用 python 的路径
 -- toggle use
 vim.o.hidden = true
 -- leader
@@ -16,19 +16,19 @@ vim.o.sidescrolloff = 5
 vim.wo.number = true
 vim.wo.relativenumber = true
 -- 高亮所在行
-vim.wo.cursorline = true
+vim.wo.cursorline = false
 -- 显示左侧图标指示列
 vim.wo.signcolumn = 'yes'
 -- 右侧参考线，超过表示代码太长了，考虑换行
 vim.wo.colorcolumn = '120'
 -- 缩进2个空格等于一个Tab
-vim.o.tabstop = 2
-vim.bo.tabstop = 2
-vim.o.softtabstop = 2
+vim.o.tabstop = 4
+vim.bo.tabstop = 4
+vim.o.softtabstop = 4
 vim.o.shiftround = true
 -- >> << 时移动长度
-vim.o.shiftwidth = 2
-vim.bo.shiftwidth = 2
+vim.o.shiftwidth = 4
+vim.bo.shiftwidth = 4
 -- 新行对齐当前行，空格替代tab
 vim.o.expandtab = true
 vim.bo.expandtab = true
@@ -45,7 +45,7 @@ vim.o.incsearch = true
 -- 使用增强状态栏后不再需要 vim 的模式提示
 vim.o.showmode = false
 -- 命令行高为2
-vim.o.cmdheight = 2
+vim.o.cmdheight = 1
 -- 当文件被外部程序修改时，自动加载
 vim.o.autoread = true
 vim.bo.autoread = true
@@ -86,3 +86,8 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 
 vim.o.clipboard = 'unnamedplus' -- 打通 nvim 和系统剪切板
+
+-- 关闭 vim 文件浏览器 netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+

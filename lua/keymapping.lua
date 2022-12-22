@@ -10,6 +10,29 @@ map('v', '<', '<gv', opt)
 map('v', '>', '>gv', opt)
 
 
+-- ########################################################## bufferline
+map('n', '<leader>[', '<cmd>BufferLineCyclePrev<CR>', opt)
+map('n', '<leader>]', '<cmd>BufferLineCycleNext<CR>', opt)
+map('n', '<leader>bc', '<cmd>bd<CR>', opt) -- close
+map('n', '<leader>bn', '<cmd>enew<CR>', opt) -- new
+map('n', '<leader>bp', '<cmd>BufferLinePickClose<CR>', opt)
+map('n', '<leader>bl', '<cmd>BufferLineCloseLeft<CR>', opt) -- 关闭左边
+map('n', '<leader>br', '<cmd>BufferLineCloseRight<CR>', opt) -- 关闭右边
+map('n', '<leader>ba', '<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>', opt) -- 关闭除当前所有
+
+
+map('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', opt)
+map('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', opt)
+map('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', opt)
+map('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<CR>', opt)
+map('n', '<leader>5', '<cmd>BufferLineGoToBuffer 5<CR>', opt)
+map('n', '<leader>6', '<cmd>BufferLineGoToBuffer 6<CR>', opt)
+map('n', '<leader>7', '<cmd>BufferLineGoToBuffer 7<CR>', opt)
+map('n', '<leader>8', '<cmd>BufferLineGoToBuffer 8<CR>', opt)
+map('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>', opt)
+map('n', '<leader>0', '<cmd>BufferLineGoToBuffer 10<CR>', opt)
+
+
 -- ########################################################## lsp
 -- map('n', '<leader>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
@@ -68,13 +91,6 @@ map('n', '<leader>xd', '<cmd>Trouble document_diagnostics<CR>', opt)
 map('n', '<leader>xl', '<cmd>Trouble loclist<CR>', opt)
 map('n', '<leader>xq', '<cmd>Trouble quickfix<CR>', opt)
 map('n', '<leader>xr', '<cmd>Trouble lsp_references<CR>', opt)
-
-
--- ########################################################## bufferline
-map('n', '<leader>[', '<cmd>BufferLineCyclePrev<CR>', opt)
-map('n', '<leader>]', '<cmd>BufferLineCycleNext<CR>', opt)
-map('n', '<leader>bc', '<cmd>bd<CR>', opt) -- close
-map('n', '<leader>bn', '<cmd>enew<CR>', opt) -- new
 
 
 -- ########################################################## nvimTree
