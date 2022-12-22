@@ -1,4 +1,3 @@
--- terminal
 local vim = vim
 
 require("toggleterm").setup{

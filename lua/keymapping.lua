@@ -3,7 +3,7 @@ local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
 
 
--- ########################################################## base setting
+-- ########################################################## base
 map('n', '<C-u>', '9k', opt)
 map('n', '<C-d>', '9j', opt)
 map('v', '<', '<gv', opt)
@@ -101,7 +101,7 @@ map('n', '<leader>tl', '<cmd>NvimTreeToggle<CR>', opt)
 map('n', '<leader>tr', '<cmd>SymbolsOutline<CR>', opt)
 
 
--- ########################################################## term toggle
+-- ########################################################## termtoggle
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)

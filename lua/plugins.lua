@@ -114,15 +114,17 @@ return require('packer').startup(function(use)
   -- ##########################################################
   -- window
   -- ##########################################################
---  use{ 'sindrets/winshift.nvim', lock = is_lock } -- window change
---  use{ 'https://gitlab.com/yorickpeterse/nvim-window', lock = is_lock } -- 编号选择窗口
---  use{ 'hoschi/yode-nvim', lock = is_lock } -- 有问题
+  use{ 'sindrets/winshift.nvim', lock = is_lock } -- window change
+  use{ 'https://gitlab.com/yorickpeterse/nvim-window', lock = is_lock } -- 编号选择窗口
+--  use{ 'hoschi/yode-nvim', lock = false } -- 有问题
 
 
   -- ##########################################################
   -- terminal
   -- ##########################################################
-  use{ 'akinsho/toggleterm.nvim', lock = is_lock }
+  use{ 'akinsho/toggleterm.nvim', lock = is_lock,
+    config = function() require("setting.init-toggleterm") end
+  }
   use{ 'voldikss/vim-floaterm', lock = is_lock }
 
 
