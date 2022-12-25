@@ -88,6 +88,7 @@ return require('packer').startup(function(use)
   use{ 'rcarriga/nvim-dap-ui', lock = is_lock,
     config = function() require("setting.init-dap-ui") end
   }
+ --  use { 'Pocco81/DAPInstall.nvim', lock = false }
   -- 虚拟文本
   --  dap (自动加载 ftplugin 目录下 .lua 的语言配置文件)
   use{ 'theHamsta/nvim-dap-virtual-text', lock = is_lock }
@@ -114,7 +115,10 @@ return require('packer').startup(function(use)
   -- ##########################################################
   -- window
   -- ##########################################################
-  use{ 'sindrets/winshift.nvim', lock = is_lock } -- window change
+  -- window change
+  use{ 'sindrets/winshift.nvim', lock = is_lock,
+    config = function() require("setting.init-winshift") end
+  }
   use{ 'https://gitlab.com/yorickpeterse/nvim-window', lock = is_lock } -- 编号选择窗口
 --  use{ 'hoschi/yode-nvim', lock = false } -- 有问题
 
@@ -125,7 +129,10 @@ return require('packer').startup(function(use)
   use{ 'akinsho/toggleterm.nvim', lock = is_lock,
     config = function() require("setting.init-toggleterm") end
   }
-  use{ 'voldikss/vim-floaterm', lock = is_lock }
+  use{ 'voldikss/vim-floaterm', lock = is_lock,
+    config = function() require("setting.init-vim-floaterm") end
+
+  }
 
 
   -- ##########################################################
@@ -163,10 +170,13 @@ return require('packer').startup(function(use)
   }
   -- 快速选择单词
   use{'phaazon/hop.nvim', lock = is_lock,
-    branch = 'v1'
+    branch = 'v2',
+    config = function() require("setting.init-hop-nvim") end
   }
   -- ranger
-  use{ 'kevinhwang91/rnvimr', lock = is_lock }
+  use{ 'kevinhwang91/rnvimr', lock = is_lock,
+    config = function() require("setting.init-rnvimr") end
+  }
   -- code format
   use{ 'mhartington/formatter.nvim', lock = is_lock }
   -- code format

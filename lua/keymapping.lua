@@ -2,13 +2,21 @@ local vim = vim
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
 
-
 -- ########################################################## base
 map('n', '<C-u>', '9k', opt)
 map('n', '<C-d>', '9j', opt)
 map('v', '<', '<gv', opt)
 map('v', '>', '>gv', opt)
 
+-- ########################################################## nvimTree
+map('n', '<leader>tl', '<cmd>NvimTreeToggle<CR>', opt)
+
+-- ########################################################## range
+map('n', '<leader>tf', '<cmd>RnvimrToggle<CR>', opt)
+map('n', '<leader>tr', '<cmd>RnvimrResize<CR>', opt) -- 打开文件后设置窗口尺寸
+
+-- ########################################################## fun map
+map('n', '<leader>fm', '<cmd>SymbolsOutline<CR>', opt)
 
 -- ########################################################## bufferline
 map('n', '<leader>[', '<cmd>BufferLineCyclePrev<CR>', opt)
@@ -20,7 +28,6 @@ map('n', '<leader>bl', '<cmd>BufferLineCloseLeft<CR>', opt) -- 关闭左边
 map('n', '<leader>br', '<cmd>BufferLineCloseRight<CR>', opt) -- 关闭右边
 map('n', '<leader>ba', '<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>', opt) -- 关闭除当前所有
 
-
 map('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', opt)
 map('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', opt)
 map('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', opt)
@@ -31,7 +38,6 @@ map('n', '<leader>7', '<cmd>BufferLineGoToBuffer 7<CR>', opt)
 map('n', '<leader>8', '<cmd>BufferLineGoToBuffer 8<CR>', opt)
 map('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>', opt)
 map('n', '<leader>0', '<cmd>BufferLineGoToBuffer 10<CR>', opt)
-
 
 -- ########################################################## lsp
 -- map('n', '<leader>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
@@ -85,103 +91,77 @@ map('n', '<leader>fp', '<cmd>Telescope project<CR>', opt)
 
 
 -- ########################################################## error list
-map('n', '<leader>xh', '<cmd>TroubleToggle<CR>', opt)
-map('n', '<leader>xw', '<cmd>Trouble workspace_diagnostics<CR>', opt)
-map('n', '<leader>xd', '<cmd>Trouble document_diagnostics<CR>', opt)
-map('n', '<leader>xl', '<cmd>Trouble loclist<CR>', opt)
-map('n', '<leader>xq', '<cmd>Trouble quickfix<CR>', opt)
-map('n', '<leader>xr', '<cmd>Trouble lsp_references<CR>', opt)
+map('n', '<leader>eh', '<cmd>TroubleToggle<CR>', opt)
+map('n', '<leader>ew', '<cmd>Trouble workspace_diagnostics<CR>', opt)
+map('n', '<leader>ed', '<cmd>Trouble document_diagnostics<CR>', opt)
+map('n', '<leader>el', '<cmd>Trouble loclist<CR>', opt)
+map('n', '<leader>eq', '<cmd>Trouble quickfix<CR>', opt)
+map('n', '<leader>er', '<cmd>Trouble lsp_references<CR>', opt)
 
 
--- ########################################################## nvimTree
-map('n', '<leader>tl', '<cmd>NvimTreeToggle<CR>', opt)
+-- ########################################################## toggleterm
+-- function _G.set_terminal_keymaps()
+--   local opts = {noremap = true}
+--   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+--   -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+-- end
 
-
--- ########################################################## fun map
-map('n', '<leader>tr', '<cmd>SymbolsOutline<CR>', opt)
-
-
--- ########################################################## termtoggle
 function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+  local opts = {buffer = 0}
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 end
+
 -- 使这些按键用于 toggle
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 map('n', '<leader>ht', ':ToggleTermToggleAll<CR>', opt)
 
-
--- ########################################################## term 2
+-- ########################################################## vim-floaterm 
+-- 悬浮窗口
 map('n', '<leader>tt', '<cmd>FloatermNew<CR>', opt)
 map('n', '<leader>tn', '<cmd>FloatermNext<CR>', opt)
 map('n', '<leader>tp', '<cmd>FloatermPrev<CR>', opt)
 map('n', '<leader>th', '<cmd>FloatermToggle<CR>', opt)
 map('n', '<leader>tk', '<cmd>FloatermKill<CR>', opt)
 
-
--- ########################################################## range
-map('n', '<leader>tf', '<cmd>RnvimrToggle<CR>', opt)
-
-
 -- ########################################################## translator
 map('n', '<leader>w', '<cmd>TranslateW<CR>', opt)
 
-
 -- ########################################################## undotree
 map('n', '<leader>tu', '<cmd>UndotreeToggle<CR>', opt)
-
 
 -- ########################################################## markdown preview
 -- map('n', '<leader>mb', '<cmd>MarkdownPreview<CR>', opt) -- 开始预览
 -- map('n', '<leader>ms', '<cmd>MarkdownPreviewStop<CR>', opt) -- 停止预览
 -- map('n', '<leader>mh', '<cmd>MarkdownPreviewToggle<CR>', opt) -- 隐藏
 
-
--- ########################################################## move window
+-- ########################################################## winshift.nvim (窗口移动)
 map('n', '<C-m>', '<cmd>WinShift<CR>', opt) -- move window
 -- map('n', '<C-c>', '<cmd>WinShift swap<CR>', opt) -- swap window
+
+-- " Start Win-Move mode:
+-- nnoremap <C-W><C-M> <Cmd>WinShift<CR>
+-- nnoremap <C-W>m <Cmd>WinShift<CR>
+-- 
+-- " Swap two windows:
+-- nnoremap <C-W>X <Cmd>WinShift swap<CR>
+-- 
+-- " If you don't want to use Win-Move mode you can create mappings for calling the
+-- " move commands directly:
+-- nnoremap <C-M-H> <Cmd>WinShift left<CR>
+-- nnoremap <C-M-J> <Cmd>WinShift down<CR>
+-- nnoremap <C-M-K> <Cmd>WinShift up<CR>
+-- nnoremap <C-M-L> <Cmd>WinShift right<CR>
 
 
 -- ########################################################## nvim-window
 map('n', '<C-p>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
 map('i', '<C-p>', '<cmd>lua require("nvim-window").pick()<CR>', opt) -- change window
-
-
--- ########################################################## dap jdtls
-vim.cmd([[
-command! -nargs=0 OR   :lua require'jdtls'.organize_imports()
-command! -nargs=0 Format  :lua vim.lsp.buf.formatting()
-nnoremap crv <Cmd>lua require('jdtls').extract_variable()<CR>
-vnoremap crv <Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>
-nnoremap crc <Cmd>lua require('jdtls').extract_constant()<CR>
-vnoremap crc <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
-vnoremap crm <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
-function! s:jdtls_test_class_ui()
-  lua require'jdtls'.test_class()
-  lua require'dapui'.open()
-endfunction
-function! s:jdtls_test_method_ui()
-  lua require'jdtls'.test_nearest_method()
-  lua require'dapui'.open()
-endfunction
-command! -nargs=0 TestClass  :lua require'jdtls'.test_class()
-command! -nargs=0 TestMethod  :lua require'jdtls'.test_nearest_method()
-command! -nargs=0 TestClassUI  :call s:jdtls_test_class_ui()
-command! -nargs=0 TestMethodUI :call s:jdtls_test_method_ui()
-nnoremap <leader>dq <Cmd>lua require'jdtls'.test_class()<CR>
-nnoremap <leader>dw <Cmd>lua require'jdtls'.test_nearest_method()<CR>
-command! -nargs=0 JdtRefreshDebugConfigs :lua require('jdtls.dap').setup_dap_main_class_configs()
-command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
-command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)
-command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
-command! -buffer JdtJol lua require('jdtls').jol()
-command! -buffer JdtBytecode lua require('jdtls').javap()
-command! -buffer JdtJshell lua require('jdtls').jshell()
-" nnoremap <silent> <space>p <cmd>call lighttree#plugin#jdt#toggle_win()<cr>
-]])
-
