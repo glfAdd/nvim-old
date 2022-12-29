@@ -88,7 +88,7 @@ return require('packer').startup(function(use)
   use{ 'rcarriga/nvim-dap-ui', lock = is_lock,
     config = function() require("setting.init-dap-ui") end
   }
- --  use { 'Pocco81/DAPInstall.nvim', lock = false }
+  -- use { 'Pocco81/DAPInstall.nvim', lock = false }
   -- 虚拟文本
   --  dap (自动加载 ftplugin 目录下 .lua 的语言配置文件)
   use{ 'theHamsta/nvim-dap-virtual-text', lock = is_lock }

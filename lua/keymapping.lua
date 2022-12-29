@@ -10,10 +10,11 @@ map('v', '>', '>gv', opt)
 
 -- ########################################################## nvimTree
 map('n', '<leader>tl', '<cmd>NvimTreeToggle<CR>', opt)
+map('n', '<leader>tf', '<cmd>NvimTreeFindFile<CR>', opt)
 
 -- ########################################################## range
-map('n', '<leader>tf', '<cmd>RnvimrToggle<CR>', opt)
-map('n', '<leader>tr', '<cmd>RnvimrResize<CR>', opt) -- 打开文件后设置窗口尺寸
+map('n', '<leader>rf', '<cmd>RnvimrToggle<CR>', opt)
+map('n', '<leader>rr', '<cmd>RnvimrResize<CR>', opt) -- 打开文件后设置窗口尺寸
 
 -- ########################################################## fun map
 map('n', '<leader>fm', '<cmd>SymbolsOutline<CR>', opt)
@@ -77,7 +78,7 @@ map('n', '<leader>du', '<cmd>lua require("dapui").toggle()<CR>', opt)
 
 
 -- ########################################################## cmp
--- map('n', '<CR>', ':cmp.mapping.confirm({ select = true })<CR>', opt)
+-- cmp 的补全在这里设置失败, 放在 config 文件中
 
 
 -- ########################################################## telescope
