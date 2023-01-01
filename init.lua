@@ -1,4 +1,3 @@
-require('basic')
-require('plugins')
-require('keymapping')
-
+require("basic")
+require("plugins")
+require("keymapping")

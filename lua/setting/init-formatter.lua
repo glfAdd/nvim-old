@@ -1,6 +1,26 @@
 --[[
-格式化 json, 打开 json 文件后输入:
+获取当前文件名:
+    vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
+
+
+
+导入默认的配置:
+    使用 require 导入默认的配置
+
+
+
+自定义配置:
+    exe     可执行命令
+    args    参数
+    stdin   可以输入到文件 true
+
+
+
+其他语言同理, 安装需要的依赖, 设置执行的命令和参数
+例如 json 格式化, 打开 json 文件后输入
     :%!python -m json.tool
+
+
 
 
 --]]
@@ -58,19 +78,54 @@ require("formatter").setup({
 		-- ##########################################################
 		-- json
 		-- ##########################################################
-		-- json = {
-		-- 	function()
-		-- 		return {
-		-- 			exe = "~/.config/nvim/source/prettierd-0.23.2/bin/prettierd",
-		-- 			args = {
-		-- 				"--stdin-filepath",
-		-- 				vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-		-- 				"--double-quote",
-		-- 			},
-		-- 			stdin = true,
-		-- 		}
-		-- 	end,
-		-- },
+		json = {
+			function()
+				return {
+					exe = "~/.config/nvim/source/p3.11.0-venv/bin/python -m json.tool",
+					args = {
+						"-r",
+						vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
+					},
+					stdin = true,
+				}
+			end,
+		},
+
+		-- ##########################################################
+		-- yaml
+		-- ##########################################################
+		yaml = {
+			function()
+				return {
+					exe = "~/.config/nvim/source/p3.11.0-venv/bin/python -m pyaml",
+					stdin = true,
+				}
+			end,
+		},
+
+		-- ##########################################################
+		-- c
+		-- ##########################################################
+		c = {
+			function()
+				return {
+					exe = "~/.config/nvim/source/p3.11.0-venv/bin/python -m pyaml",
+					stdin = true,
+				}
+			end,
+		},
+
+		-- ##########################################################
+		-- go
+		-- ##########################################################
+		go = {
+			function()
+				return {
+					exe = "~/.config/nvim/source/p3.11.0-venv/bin/python -m pyaml",
+					stdin = true,
+				}
+			end,
+		},
 
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype

@@ -1,5 +1,5 @@
 -- 使用 vim-startify 的样式
-require('alpha').setup(require'alpha.themes.startify'.config)
+require("alpha").setup(require("alpha.themes.startify").config)
 
 -- local dashboard = require('alpha.themes.dashboard')
 -- require('alpha').setup(dashboard.opts)
