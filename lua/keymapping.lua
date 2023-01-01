@@ -16,8 +16,8 @@ map("n", "<leader>tf", "<cmd>NvimTreeFindFile<CR>", opt)
 map("n", "<leader>rf", "<cmd>RnvimrToggle<CR>", opt)
 map("n", "<leader>rr", "<cmd>RnvimrResize<CR>", opt) -- 打开文件后设置窗口尺寸
 
--- ########################################################## fun map
-map("n", "<leader>fm", "<cmd>SymbolsOutline<CR>", opt)
+-- ########################################################## 函数名地图
+map("n", "<leader>tr", "<cmd>SymbolsOutline<CR>", opt)
 
 -- ########################################################## bufferline
 map("n", "<leader>[", "<cmd>BufferLineCyclePrev<CR>", opt)

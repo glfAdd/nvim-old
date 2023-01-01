@@ -202,7 +202,13 @@ return require("packer").startup(function(use)
 			require("setting.init-trouble")
 		end,
 	})
-	use({ "simrat39/symbols-outline.nvim", lock = is_lock }) -- 右侧边栏函数, 变量
+	use({ -- 边栏显示函数对象
+		"simrat39/symbols-outline.nvim",
+		lock = is_lock,
+		config = function()
+			require("setting.init-symbols-outline")
+		end,
+	}) -- 右侧边栏函数, 变量
 	use({ "kevinhwang91/nvim-bqf", lock = is_lock, ft = "qf" }) -- quickfix 窗口
 	use({ -- 快速选择单词
 		"phaazon/hop.nvim",

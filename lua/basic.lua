@@ -1,6 +1,7 @@
 local vim = vim
 
---vim.g.python3_host_prog = '~/.pyenv/versions/p-3.9.2-neovim/bin/python' -- 设置 nvim 使用 python 的路径
+-- 设置 nvim 使用 python 的路径
+vim.g.python3_host_prog = "~/.config/nvim/source/p3.11.0-venv/bin/python"
 -- toggle use
 vim.o.hidden = true
 -- leader
