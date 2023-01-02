@@ -22,7 +22,7 @@ vim.wo.cursorline = false
 vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
 vim.wo.colorcolumn = "120"
--- 缩进2个空格等于一个Tab
+-- 缩进4个空格等于一个Tab
 vim.o.tabstop = 4
 vim.bo.tabstop = 4
 vim.o.softtabstop = 4
@@ -38,7 +38,7 @@ vim.bo.autoindent = true
 vim.o.smartindent = true
 -- 搜索大小写不敏感，除非包含大写
 vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.o.smartcase = true -- 搜索时对首字母大小写敏感
 -- 搜索高亮
 vim.o.hlsearch = true
 -- 边输入边搜索

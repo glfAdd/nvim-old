@@ -23,19 +23,63 @@ cmp.setup({
 	}),
 
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 
-	-- key manping
+	-- 按键设置
 	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 		["<M-,>"] = cmp.mapping.complete(),
 		["<M-.>"] = cmp.mapping.abort(),
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		-- ["<CR>"] = cmp.mapping({
+		-- 	i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+		-- 	c = function(fallback)
+		-- 		if cmp.visible() then
+		-- 			cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+		-- 		else
+		-- 			fallback()
+		-- 		end
+		-- 	end,
+		-- }),
+		["<Tab>"] = cmp.mapping({
+			c = function()
+				if cmp.visible() then
+					cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+				else
+					cmp.complete()
+				end
+			end,
+			i = function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+				else
+					fallback()
+				end
+			end,
+		}),
+		["<S-Tab>"] = cmp.mapping({
+			c = function()
+				if cmp.visible() then
+					cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+				else
+					cmp.complete()
+				end
+			end,
+			i = function(fallback)
+				if cmp.visible() then
+					cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+				else
+					fallback()
+				end
+			end,
+		}),
+		["<Down>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
+		["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
 	}),
 
 	-- sorting = {
@@ -50,6 +94,15 @@ cmp.setup({
 	--       cmp.config.compare.order,
 	--   },
 	-- },
+})
+
+-- 为特定的文件类型设置配置
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).

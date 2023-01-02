@@ -51,15 +51,6 @@ return require("packer").startup(function(use)
 			require("setting.init-lsp")
 		end,
 	})
-	use({ "williamboman/nvim-lsp-installer", lock = is_lock }) -- lsp 安装工具
-	use({ -- 函数参数提示
-		"ray-x/lsp_signature.nvim",
-		lock = is_lock,
-		config = function()
-			require("setting.init-lsp_signature")
-		end,
-	})
-	use({ "nvim-lua/lsp-status.nvim", lock = is_lock })
 	use({ -- LSP UI 增强
 		"glepnir/lspsaga.nvim",
 		lock = is_lock,
@@ -67,6 +58,15 @@ return require("packer").startup(function(use)
 			require("setting.init-lspsaga-nvim")
 		end,
 	})
+	use({ -- 函数参数提示
+		"ray-x/lsp_signature.nvim",
+		lock = is_lock,
+		config = function()
+			require("setting.init-lsp_signature")
+		end,
+	})
+	use({ "williamboman/nvim-lsp-installer", lock = is_lock }) -- lsp 安装工具
+	use({ "nvim-lua/lsp-status.nvim", lock = is_lock })
 
 	-- ##########################################################
 	-- cmp
@@ -142,7 +142,7 @@ return require("packer").startup(function(use)
 	})
 	-- 编号选择窗口
 	use({ "https://gitlab.com/yorickpeterse/nvim-window", lock = is_lock })
-	--  use{ 'hoschi/yode-nvim', lock = false } -- 有问题
+	-- use{ 'hoschi/yode-nvim', lock = is_lock } -- 有问题无法使用
 
 	-- ##########################################################
 	-- terminal
