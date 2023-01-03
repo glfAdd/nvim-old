@@ -20,24 +20,22 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 -- ......................................... window
--- map("n", "<M-k>", "<cmd>res +2<CR>", opt) --上下左右键调整当前分屏的高度和宽度
--- map("n", "<M-j>", "<cmd>res -2<CR>", opt)
--- map("n", "<M-h>", "<cmd>vertical +2<CR>", opt)
--- map("n", "<M-l>", "<cmd>vertical -2<CR>", opt)
-map("n", "<M-k>", "<cmd>resize +1<CR>", opt) --上下左右键调整当前分屏的高度和宽度
-map("n", "<M-j>", "<cmd>resize -1<CR>", opt)
-map("n", "<M-h>", "<cmd>vertical resize +1<CR>", opt)
-map("n", "<M-l>", "<cmd>vertical resize -1<CR>", opt)
+map("n", "<M-k>", "<cmd>resize +2<CR>", opt) --上下左右键调整当前分屏的高度和宽度
+map("n", "<M-j>", "<cmd>resize -2<CR>", opt)
+map("n", "<M-h>", "<cmd>vertical resize +2<CR>", opt)
+map("n", "<M-l>", "<cmd>vertical resize -2<CR>", opt)
 
--- noremap <leader>l <c-w>l                " 使用空格加方向键实现分屏之间的跳转
--- noremap <leader>h <c-w>h
--- noremap <leader>j <c-w>j
--- noremap <leader>k <c-w>k
+-- 使用空格加方向键实现分屏之间的跳转
+map("n", "<leader>l", "<c-w>l", opt)
+map("n", "<leader>h", "<c-w>h", opt)
+map("n", "<leader>j", "<c-w>j", opt)
+map("n", "<leader>k", "<c-w>k", opt)
 
--- noremap <leader>L <c-w>L                " 使用空格加大写方向键将当前分屏放置到指定方向的最边缘
--- noremap <leader>H <c-w>H
--- noremap <leader>J <c-w>J
--- noremap <leader>K <c-w>K
+-- 使用空格加大写方向键将当前分屏放置到指定方向的最边缘
+map("n", "<leader>L", "<c-w>L", opt)
+map("n", "<leader>H", "<c-w>H", opt)
+map("n", "<leader>J", "<c-w>J", opt)
+map("n", "<leader>K", "<c-w>K", opt)
 
 -- ##########################################################
 -- nvimTree
@@ -109,7 +107,7 @@ map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
 map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
 -- 显示注释文档
 map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opt)
--- 跳转到引用位置
+-- 重命名
 map("n", "gr", "<cmd>Lspsaga rename<CR>", opt)
 -- 以浮窗形式显示错误
 map("n", "go", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
