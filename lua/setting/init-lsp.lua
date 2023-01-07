@@ -2,14 +2,13 @@ local lsp_installer_servers = require("nvim-lsp-installer.servers")
 
 local servers = {
 	"sumneko_lua",
-	"pyright",
+	"pyright", -- python 静态语法检测
 	-- "jdtls",
 	"jsonls",
 	"yamlls",
 	"lemminx",
 }
 
--- Loop through the servers listed above.
 for _, server_name in pairs(servers) do
 	local server_available, server = lsp_installer_servers.get_server(server_name)
 	if server_available then

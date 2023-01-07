@@ -81,11 +81,11 @@ map("n", "<leader>0", "<cmd>BufferLineGoToBuffer 10<CR>", opt)
 -- ##########################################################
 -- lsp
 -- ##########################################################
--- 跳转到定义
+-- 跳转到定义(悬浮窗口)
 map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
 map("n", "g2", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
 map("n", "g3", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
--- 定义和引用文件
+-- 定义和引用文件查找
 map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opt)
 -- 定义列表
 map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opt)
@@ -103,10 +103,10 @@ map("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
 map("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
 -- 悬浮文档
 map("n", "gk", "<cmd>Lspsaga hover_doc<CR>", opt)
--- 打开终端
-map("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", opt)
--- 关闭终端
-map("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], opt)
+-- -- 打开终端
+-- map("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", opt)
+-- -- 关闭终端
+-- map("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], opt)
 -- 右边函数变量列表
 map("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opt)
 
@@ -206,7 +206,10 @@ map("n", "<leader>tk", "<cmd>FloatermKill<CR>", opt)
 -- ##########################################################
 -- translator
 -- ##########################################################
+-- map("n", "<leader>w", "<cmd>Translate<CR>", opt)
+-- map("v", "<leader>w", "<cmd>TranslateV<CR>", opt)
 map("n", "<leader>w", "<cmd>TranslateW<CR>", opt)
+map("v", "<leader>w", "<cmd>TranslateWV<CR>", opt)
 
 -- ##########################################################
 -- undotree
@@ -223,12 +226,11 @@ map("n", "<leader>tu", "<cmd>UndotreeToggle<CR>", opt)
 -- ##########################################################
 -- winshift.nvim (窗口移动)
 -- ##########################################################
-map("n", "<C-m>", "<cmd>WinShift<CR>", opt) -- " Start Win-Move mode:
-
-map("n", "<C-M-H>", "<cmd>WinShift left<CR>", opt)
-map("n", "<C-M-J>", "<cmd>WinShift down<CR>", opt)
-map("n", "<C-M-K>", "<cmd>WinShift up<CR>", opt)
-map("n", "<C-M-L>", "<cmd>WinShift right<CR>", opt)
+-- map("n", "<C-m>", "<cmd>WinShift<CR>", opt) -- " Start Win-Move mode:
+-- map("n", "<C-M-H>", "<cmd>WinShift left<CR>", opt)
+-- map("n", "<C-M-J>", "<cmd>WinShift down<CR>", opt)
+-- map("n", "<C-M-K>", "<cmd>WinShift up<CR>", opt)
+-- map("n", "<C-M-L>", "<cmd>WinShift right<CR>", opt)
 
 -- ##########################################################
 -- nvim-window

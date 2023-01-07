@@ -69,8 +69,6 @@ return require("packer").startup(function(use)
 
 	-- ......................................... lsp 安装工具
 	use({ "williamboman/nvim-lsp-installer", lock = is_lock })
-	-- .........................................
-	use({ "nvim-lua/lsp-status.nvim", lock = is_lock })
 
 	-- ##########################################################
 	-- cmp 代码补全
@@ -292,7 +290,13 @@ return require("packer").startup(function(use)
 		end,
 	})
 	-- ......................................... 字典
-	use({ "voldikss/vim-translator", lock = is_lock })
+	use({
+		"voldikss/vim-translator",
+		lock = is_lock,
+		config = function()
+			require("setting.init-vim-translator")
+		end,
+	})
 	-- ......................................... 文本对齐
 	use({ "junegunn/vim-easy-align", lock = is_lock })
 	-- ......................................... undo tree
