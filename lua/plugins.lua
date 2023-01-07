@@ -278,7 +278,14 @@ return require("packer").startup(function(use)
 	})
 
 	-- ......................................... lazygit
-	use({ "kdheepak/lazygit.nvim", lock = is_lock })
+	use({
+		"kdheepak/lazygit.nvim",
+		lock = is_lock,
+
+		config = function()
+			require("setting.init-lazygit")
+		end,
+	})
 	-- ......................................... git
 	use({ "lewis6991/gitsigns.nvim", lock = is_lock })
 	-- ......................................... 注释
@@ -300,7 +307,13 @@ return require("packer").startup(function(use)
 	-- ......................................... 文本对齐
 	use({ "junegunn/vim-easy-align", lock = is_lock })
 	-- ......................................... undo tree
-	use({ "mbbill/undotree", lock = is_lock })
+	use({
+		"mbbill/undotree",
+		lock = is_lock,
+		config = function()
+			require("setting.init-undotree")
+		end,
+	})
 
 	-- use neovim in browser
 	--  use {

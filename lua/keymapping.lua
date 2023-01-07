@@ -20,6 +20,11 @@ map("n", "<C-d>", "9j", opt)
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
+-- ##########################################################
+-- lazygit
+-- ##########################################################
+map("n", "<leader>gg", "<cmd>LazyGit<CR>", opt)
+
 -- ......................................... window
 map("n", "<M-k>", "<cmd>resize +1<CR>", opt) --上下左右键调整当前分屏的高度和宽度
 map("n", "<M-j>", "<cmd>resize -1<CR>", opt)
@@ -206,8 +211,6 @@ map("n", "<leader>tk", "<cmd>FloatermKill<CR>", opt)
 -- ##########################################################
 -- translator
 -- ##########################################################
--- map("n", "<leader>w", "<cmd>Translate<CR>", opt)
--- map("v", "<leader>w", "<cmd>TranslateV<CR>", opt)
 map("n", "<leader>w", "<cmd>TranslateW<CR>", opt)
 map("v", "<leader>w", "<cmd>TranslateWV<CR>", opt)
 
