@@ -5,6 +5,7 @@ Other values can be seen in
 
 --]]
 
+local vim = vim
 require("gruvbox").setup({
 	undercurl = true,
 	underline = true,
@@ -23,7 +24,6 @@ require("gruvbox").setup({
 	transparent_mode = false,
 })
 
-local vim = vim
 vim.opt.termguicolors = true
 vim.o.background = "dark" -- light or dark
 vim.cmd("colorscheme gruvbox")

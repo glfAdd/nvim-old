@@ -9,6 +9,7 @@
 
 local vim = vim
 local map = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 local opt = { noremap = true, silent = true }
 
 -- ##########################################################
@@ -20,18 +21,18 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 -- ......................................... window
-map("n", "<M-k>", "<cmd>resize +2<CR>", opt) --上下左右键调整当前分屏的高度和宽度
-map("n", "<M-j>", "<cmd>resize -2<CR>", opt)
-map("n", "<M-h>", "<cmd>vertical resize +2<CR>", opt)
-map("n", "<M-l>", "<cmd>vertical resize -2<CR>", opt)
+map("n", "<M-k>", "<cmd>resize +1<CR>", opt) --上下左右键调整当前分屏的高度和宽度
+map("n", "<M-j>", "<cmd>resize -1<CR>", opt)
+map("n", "<M-h>", "<cmd>vertical resize +1<CR>", opt)
+map("n", "<M-l>", "<cmd>vertical resize -1<CR>", opt)
 
--- 使用空格加方向键实现分屏之间的跳转
+-- 分屏切换
 map("n", "<leader>l", "<c-w>l", opt)
 map("n", "<leader>h", "<c-w>h", opt)
 map("n", "<leader>j", "<c-w>j", opt)
 map("n", "<leader>k", "<c-w>k", opt)
 
--- 使用空格加大写方向键将当前分屏放置到指定方向的最边缘
+-- 将当前分屏放置到指定方向最边缘
 map("n", "<leader>L", "<c-w>L", opt)
 map("n", "<leader>H", "<c-w>H", opt)
 map("n", "<leader>J", "<c-w>J", opt)
@@ -80,43 +81,46 @@ map("n", "<leader>0", "<cmd>BufferLineGoToBuffer 10<CR>", opt)
 -- ##########################################################
 -- lsp
 -- ##########################################################
--- ......................................... lspsage (对系统 lsp 的增强)
--- map('n', '<leader>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
 -- 跳转到定义
-map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
--- 跳转到实现
-map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
--- map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
--- map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt) -- document
--- map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
--- map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
--- map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opt)
--- map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opt)
--- map('n', '<leader>law', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
--- map('n', '<leader>lrw', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
--- map('n', '<leader>llw', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
--- map('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
--- map('n', '<leader>lrn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
--- map('n', '<leader>lrf', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
--- map('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opt)
--- map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opt)
--- map('n', '<leader>lca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
-
--- ......................................... lspsage (对系统 lsp 的增强)
--- 跳转到声明
 map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
--- 显示注释文档
-map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opt)
+map("n", "g2", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+map("n", "g3", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+-- 定义和引用文件
+map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opt)
+-- 定义列表
+map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opt)
+-- 引用列表
+map("n", "<leader>lrf", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
 -- 重命名
 map("n", "gr", "<cmd>Lspsaga rename<CR>", opt)
--- 以浮窗形式显示错误
-map("n", "go", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
-map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opt)
-map("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+-- 跳转到实现
+map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+-- 智能修复
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-map("v", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
+-- 跳到上一个错误
+map("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
+-- 跳到下一个错误
+map("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
+-- 悬浮文档
+map("n", "gk", "<cmd>Lspsaga hover_doc<CR>", opt)
+-- 打开终端
+map("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", opt)
+-- 关闭终端
+map("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], opt)
+-- 右边函数变量列表
+map("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opt)
+
+-- 只跳转到错误
+keymap("n", "[E", function()
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+keymap("n", "]E", function()
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+map("n", "<leader>law", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opt)
+map("n", "<leader>lrw", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opt)
+-- keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
 
 -- ##########################################################
 -- dap
