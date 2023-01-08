@@ -2,12 +2,18 @@ require("telescope").setup({
 	defaults = {
 		layout_strategy = "horizontal",
 		layout_config = {
-			height = 0.95,
-			width = 0.95,
-			preview_width = 0.6, -- 左右比例
+			height = 0.95, -- 边框距离
+			width = 0.95, -- 边框距离
+			preview_width = 0.4, -- 左右比例
 		},
 	},
-
+	pickers = {
+		find_files = {
+			-- theme = "dropdown", -- 上下样式
+			-- theme = "cursor", -- 小悬浮窗口
+			-- theme = "ivy", -- 下部窗口
+		},
+	},
 	extensions = {
 		fzf = {
 			fuzzy = true, -- false will only do exact matching

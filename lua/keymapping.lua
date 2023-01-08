@@ -156,7 +156,9 @@ map("n", "<leader>d3", '<cmd>lua require"dap".repl.open()<CR>', opt)
 -- ##########################################################
 -- telescope
 -- ##########################################################
+-- buffer 名称搜索
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opt)
+
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opt)
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opt)
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opt)

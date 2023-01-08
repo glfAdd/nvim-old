@@ -130,10 +130,28 @@ return require("packer").startup(function(use)
 	-- ##########################################################
 	-- 望远镜
 	-- ##########################################################
-	use({ "nvim-telescope/telescope.nvim", lock = is_lock })
-	use({ "nvim-telescope/telescope-project.nvim", lock = is_lock })
+	use({
+		"nvim-telescope/telescope.nvim",
+		lock = is_lock,
+		config = function()
+			require("setting.init-telescope")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope-project.nvim",
+		lock = is_lock,
+		config = function()
+			require("setting.init-telescope-project")
+		end,
+	})
 	use({ "nvim-telescope/telescope-dap.nvim", lock = is_lock })
-	use({ "nvim-telescope/telescope-ui-select.nvim", lock = is_lock })
+	use({
+		"nvim-telescope/telescope-ui-select.nvim",
+		lock = is_lock,
+		config = function()
+			require("setting.init-telescope-ui-select")
+		end,
+	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", lock = is_lock, run = "make" }) -- 模糊查询
 	use({ "nvim-telescope/telescope-fzf-writer.nvim", lock = is_lock })
 	use({ "nvim-telescope/telescope-hop.nvim", lock = is_lock })
