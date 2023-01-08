@@ -71,7 +71,7 @@ saga.init_lsp_saga({
 	symbol_in_winbar = {
 		in_custom = false,
 		enable = true,
-		separator = "",
+		separator = " > ",
 		show_file = true,
 		-- define how to customize filename, eg: %:., %
 		-- if not set, use default value `%:t`

@@ -94,7 +94,7 @@ local g = {
 -- ......................................... 自定义 vim-startify 样式
 local alpha = require("alpha")
 local startify = require("alpha.themes.startify")
-startify.section.header.val = g
+startify.section.header.val = b
 startify.section.header.opts = {
 	position = "left", -- left center right
 }

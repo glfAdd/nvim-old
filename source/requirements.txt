@@ -1,13 +1,16 @@
 autopep8==2.0.1
 black==22.12.0
 click==8.1.3
+debugpy==1.6.5
 greenlet==2.0.1
 msgpack==1.0.4
 mypy-extensions==0.4.3
+nodeenv==1.7.0
 pathspec==0.10.3
 platformdirs==2.6.2
 pyaml==21.10.1
 pycodestyle==2.10.0
 pynvim==0.4.3
+pyright==1.1.287
 PyYAML==6.0
 yapf==0.32.0
