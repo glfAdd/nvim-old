@@ -130,20 +130,23 @@ map("n", "<leader>lrw", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", op
 -- ##########################################################
 -- dap
 -- ##########################################################
-map("n", "<leader>dc", '<cmd>lua require"dap".continue()<CR>', opt)
-map("n", "<leader>dk", '<cmd>lua require"dap".step_over()<CR>', opt)
-map("n", "<leader>di", '<cmd>lua require"dap".step_into()<CR>', opt)
-map("n", "<leader>do", '<cmd>lua require"dap".step_out()<CR>', opt)
-map("n", "<leader>dp", '<cmd>lua require"dap".toggle_breakpoint()<CR>', opt)
-map("v", "<leader>ds", '<ESC> <cmd>lua require("dap-python").debug_selection()<CR>', opt) -- run select python code
+-- dap ui
+map("n", "<leader>dt", '<cmd>lua require("dapui").toggle()<CR>', opt)
 
+map("n", "<leader>d1", '<cmd>lua require"dap".pause()<CR>', opt) -- 
+map("n", "<leader>d2", '<cmd>lua require"dap".step_back()<CR>', opt) -- 
+map("n", "<leader>dc", '<cmd>lua require"dap".continue()<CR>', opt) -- 
+map("n", "<leader>d0", '<cmd>lua require"dap".terminate()<CR>', opt) -- 
+map("n", "<leader>dk", '<cmd>lua require"dap".step_over()<CR>', opt) -- 
+map("n", "<leader>di", '<cmd>lua require"dap".step_into()<CR>', opt) -- 
+map("n", "<leader>do", '<cmd>lua require"dap".step_out()<CR>', opt) -- 
+map("n", "<leader>dr", '<cmd>lua require"dap".run_last()<CR>', opt) -- 
+
+map("n", "<leader>db", '<cmd>lua require"dap".toggle_breakpoint()<CR>', opt)
 map("n", "<leader>d1", '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opt)
+-- 输入日志, 执行到这个断点的时候打印输入的内容
 map("n", "<leader>d2", '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', opt)
 map("n", "<leader>d3", '<cmd>lua require"dap".repl.open()<CR>', opt)
-map("n", "<leader>d4", '<cmd>lua require"dap".run_last()<CR>', opt)
-
--- dap ui
-map("n", "<leader>du", '<cmd>lua require("dapui").toggle()<CR>', opt)
 
 -- ##########################################################
 -- cmp

@@ -1,8 +1,7 @@
 require("dapui").setup({
-	--  icons = { expanded = "▾", collapsed = "▸" },
-	icons = { expanded = "", collapsed = "", current_frame = "" },
+	icons = { expanded = "", collapsed = "", current_frame = "" },
+    -- 按键修改
 	mappings = {
-		-- Use a table to apply multiple mappings
 		expand = { "<CR>", "<2-LeftMouse>" },
 		open = "o",
 		remove = "d",
@@ -10,7 +9,7 @@ require("dapui").setup({
 		repl = "r",
 		toggle = "t",
 	},
-	-- Use this to override mappings for specific elements
+    -- 覆盖元素按键
 	element_mappings = {
 		-- Example:
 		-- stacks = {

@@ -112,4 +112,39 @@ dap.configurations.python = {
 			return os.getenv("VIRTUAL_ENV") .. "/bin/python"
 		end,
 	},
+	{
+		type = "python",
+		request = "launch",
+		name = "python flask",
+		console = "integratedTerminal",
+		module = "flask",
+		pythonPath = function()
+			return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+		end,
+		args = { "run", "--port", "10469" },
+		env = {
+			FLASK_APP = "${file}",
+			FLASK_ENV = "development",
+			FLASK_DEBUG = "0",
+		},
+	},
+	{
+		type = "python",
+		request = "launch",
+		name = "python flask port",
+		console = "integratedTerminal",
+		module = "flask",
+		pythonPath = function()
+			return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+		end,
+		args = function()
+			local args_string = vim.fn.input("Arguments: ")
+			return vim.split(args_string, " +")
+		end,
+		env = {
+			FLASK_APP = "${file}",
+			FLASK_ENV = "development",
+			FLASK_DEBUG = "0",
+		},
+	},
 }
