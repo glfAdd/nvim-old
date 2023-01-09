@@ -26,22 +26,22 @@ map("v", ">", ">gv", opt)
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", opt)
 
 -- ......................................... window
-map("n", "<M-k>", "<cmd>resize +1<CR>", opt) --上下左右键调整当前分屏的高度和宽度
-map("n", "<M-j>", "<cmd>resize -1<CR>", opt)
-map("n", "<M-h>", "<cmd>vertical resize +1<CR>", opt)
-map("n", "<M-l>", "<cmd>vertical resize -1<CR>", opt)
+map("n", "<C-up>", "<cmd>resize +1<CR>", opt) --上下左右键调整当前分屏的高度和宽度
+map("n", "<C-down>", "<cmd>resize -1<CR>", opt)
+map("n", "<C-left>", "<cmd>vertical resize +1<CR>", opt)
+map("n", "<C-right>", "<cmd>vertical resize -1<CR>", opt)
 
 -- 分屏切换
-map("n", "<leader>l", "<c-w>l", opt)
-map("n", "<leader>h", "<c-w>h", opt)
-map("n", "<leader>j", "<c-w>j", opt)
-map("n", "<leader>k", "<c-w>k", opt)
+map("n", "<M-l>", "<c-w>l", opt)
+map("n", "<M-h>", "<c-w>h", opt)
+map("n", "<M-j>", "<c-w>j", opt)
+map("n", "<M-k>", "<c-w>k", opt)
 
 -- 将当前分屏放置到指定方向最边缘
-map("n", "<leader>L", "<c-w>L", opt)
-map("n", "<leader>H", "<c-w>H", opt)
-map("n", "<leader>J", "<c-w>J", opt)
-map("n", "<leader>K", "<c-w>K", opt)
+map("n", "<M-L>", "<c-w>L", opt)
+map("n", "<M-H>", "<c-w>H", opt)
+map("n", "<M-J>", "<c-w>J", opt)
+map("n", "<M-K>", "<c-w>K", opt)
 
 -- ##########################################################
 -- nvimTree
@@ -52,7 +52,7 @@ map("n", "<leader>tf", "<cmd>NvimTreeFindFile<CR>", opt)
 -- ##########################################################
 -- range
 -- ##########################################################
-map("n", "<leader>rf", "<cmd>RnvimrToggle<CR>", opt)
+map("n", "<leader>rt", "<cmd>RnvimrToggle<CR>", opt)
 map("n", "<leader>rr", "<cmd>RnvimrResize<CR>", opt) -- 打开文件后设置窗口尺寸
 
 -- ##########################################################

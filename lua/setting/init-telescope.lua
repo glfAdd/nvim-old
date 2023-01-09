@@ -4,7 +4,7 @@ require("telescope").setup({
 		layout_config = {
 			height = 0.95, -- 边框距离
 			width = 0.95, -- 边框距离
-			preview_width = 0.4, -- 左右比例
+			preview_width = 0.5, -- 左右比例
 		},
 	},
 	pickers = {
