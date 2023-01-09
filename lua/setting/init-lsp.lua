@@ -7,6 +7,7 @@ local servers = {
 	"jsonls",
 	"yamlls",
 	"lemminx",
+	"clangd", -- c/c++
 }
 
 for _, server_name in pairs(servers) do
