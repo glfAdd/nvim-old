@@ -109,7 +109,7 @@ require("formatter").setup({
 		c = {
 			function()
 				return {
-					exe = "~/.config/nvim/source/p3.11.0-venv/bin/python -m pyaml",
+					exe = "clang-format",
 					stdin = true,
 				}
 			end,
