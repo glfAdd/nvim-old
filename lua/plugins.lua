@@ -332,6 +332,7 @@ return require("packer").startup(function(use)
 			require("setting.init-undotree")
 		end,
 	})
+	-- ......................................... 执行系统 shell 命令
 	use({
 		"skywind3000/asyncrun.vim",
 		lock = is_lock,
