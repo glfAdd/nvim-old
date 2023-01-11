@@ -332,6 +332,13 @@ return require("packer").startup(function(use)
 			require("setting.init-undotree")
 		end,
 	})
+	use({
+		"skywind3000/asyncrun.vim",
+		lock = is_lock,
+		config = function()
+			require("setting.init-asyncrun")
+		end,
+	})
 
 	-- use neovim in browser
 	--  use {
