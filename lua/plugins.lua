@@ -235,18 +235,18 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- ......................................... 通知栏
+	-- ......................................... 语法高亮
 	use({
-		"rcarriga/nvim-notify",
+		"nvim-treesitter/nvim-treesitter",
+		-- run = ':TSUpdate',
 		lock = is_lock,
 		config = function()
-			require("setting.init-nvim-notify")
+			require("setting.init-nvim-treesitter")
 		end,
 	})
-	-- ......................................... 语法高亮
-	use({ "nvim-treesitter/nvim-treesitter", lock = is_lock })
 	-- ......................................... 启动时间统计
 	use({ "dstein64/vim-startuptime", lock = is_lock })
+
 	-- ......................................... error list
 	use({
 		"folke/trouble.nvim",
@@ -267,6 +267,7 @@ return require("packer").startup(function(use)
 
 	-- ......................................... quickfix 窗口
 	use({ "kevinhwang91/nvim-bqf", lock = is_lock, ft = "qf" })
+
 	-- ......................................... 快速选择单词
 	use({
 		"phaazon/hop.nvim",
@@ -314,6 +315,7 @@ return require("packer").startup(function(use)
 			require("setting.init-comment")
 		end,
 	})
+
 	-- ......................................... 字典
 	use({
 		"voldikss/vim-translator",
@@ -324,6 +326,7 @@ return require("packer").startup(function(use)
 	})
 	-- ......................................... 文本对齐
 	use({ "junegunn/vim-easy-align", lock = is_lock })
+
 	-- ......................................... undo tree
 	use({
 		"mbbill/undotree",
@@ -332,12 +335,13 @@ return require("packer").startup(function(use)
 			require("setting.init-undotree")
 		end,
 	})
-	-- ......................................... 执行系统 shell 命令
+
+	-- ......................................... 通知栏
 	use({
-		"skywind3000/asyncrun.vim",
+		"rcarriga/nvim-notify",
 		lock = is_lock,
 		config = function()
-			require("setting.init-asyncrun")
+			require("setting.init-nvim-notify")
 		end,
 	})
 
