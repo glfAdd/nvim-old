@@ -46,7 +46,7 @@ require("lualine").setup({
 	sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "progress", "location", "diff", "diagnostics" },
+		lualine_c = { "filename", "progress", "location", "diff", "diagnostics" },
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},

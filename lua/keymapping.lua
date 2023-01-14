@@ -37,12 +37,6 @@ map("n", "<M-h>", "<c-w>h", opt)
 map("n", "<M-j>", "<c-w>j", opt)
 map("n", "<M-k>", "<c-w>k", opt)
 
--- 将当前分屏放置到指定方向最边缘
-map("n", "<M-L>", "<c-w>L", opt)
-map("n", "<M-H>", "<c-w>H", opt)
-map("n", "<M-J>", "<c-w>J", opt)
-map("n", "<M-K>", "<c-w>K", opt)
-
 -- ##########################################################
 -- nvimTree
 -- ##########################################################
@@ -167,9 +161,9 @@ map("n", "<leader>fp", "<cmd>Telescope project<CR>", opt)
 -- map('n', '<leader>fm', '<cmd>Telescope media_files<CR>', opt)
 
 -- ##########################################################
--- error list
+-- 语法错误
 -- ##########################################################
-map("n", "<leader>eh", "<cmd>TroubleToggle<CR>", opt)
+map("n", "<leader>et", "<cmd>TroubleToggle<CR>", opt)
 map("n", "<leader>ew", "<cmd>Trouble workspace_diagnostics<CR>", opt)
 map("n", "<leader>ed", "<cmd>Trouble document_diagnostics<CR>", opt)
 map("n", "<leader>el", "<cmd>Trouble loclist<CR>", opt)
@@ -234,11 +228,12 @@ map("n", "<leader>tu", "<cmd>UndotreeToggle<CR>", opt)
 -- ##########################################################
 -- winshift.nvim (窗口移动)
 -- ##########################################################
--- map("n", "<C-m>", "<cmd>WinShift<CR>", opt) -- " Start Win-Move mode:
--- map("n", "<C-M-H>", "<cmd>WinShift left<CR>", opt)
--- map("n", "<C-M-J>", "<cmd>WinShift down<CR>", opt)
--- map("n", "<C-M-K>", "<cmd>WinShift up<CR>", opt)
--- map("n", "<C-M-L>", "<cmd>WinShift right<CR>", opt)
+map("n", "<M-w>", "<cmd>WinShift<CR>", opt)
+map("n", "<M-s>", "<cmd>WinShift swap<CR>", opt)
+-- map("n", "<M-H>", "<cmd>WinShift left<CR>", opt)
+-- map("n", "<M-J>", "<cmd>WinShift down<CR>", opt)
+-- map("n", "<M-K>", "<cmd>WinShift up<CR>", opt)
+-- map("n", "<M-L>", "<cmd>WinShift right<CR>", opt)
 
 -- ##########################################################
 -- nvim-window
@@ -246,3 +241,14 @@ map("n", "<leader>tu", "<cmd>UndotreeToggle<CR>", opt)
 -- 编码切换窗口
 map("n", "<C-p>", '<cmd>lua require("nvim-window").pick()<CR>', opt)
 map("i", "<C-p>", '<cmd>lua require("nvim-window").pick()<CR>', opt)
+
+-- ##########################################################
+-- hop 快速选择单词
+-- ##########################################################
+map("n", "<M-u>", '<cmd>HopChar1MW<CR>', opt)
+map("i", "<M-u>", '<cmd>HopChar1MW<CR>', opt)
+map("n", "<M-i>", '<cmd>HopLineMW<CR>', opt)
+map("i", "<M-i>", '<cmd>HopLineMW<CR>', opt)
+
+
+

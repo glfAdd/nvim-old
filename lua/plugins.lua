@@ -162,7 +162,7 @@ return require("packer").startup(function(use)
 	-- ##########################################################
 	-- window
 	-- ##########################################################
-	-- ......................................... window change
+	-- ......................................... 启动窗口
 	use({
 		"sindrets/winshift.nvim",
 		lock = is_lock,
@@ -235,10 +235,9 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- ......................................... 语法高亮
+	-- ......................................... 语法高亮 (效果不明显是否用 ???)
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		-- run = ':TSUpdate',
 		lock = is_lock,
 		config = function()
 			require("setting.init-nvim-treesitter")
