@@ -130,7 +130,7 @@ map("n", "<leader>dt", '<cmd>lua require("dapui").toggle()<CR>', opt)
 map("n", "<leader>d1", '<cmd>lua require"dap".pause()<CR>', opt) -- 
 map("n", "<leader>d2", '<cmd>lua require"dap".step_back()<CR>', opt) -- 
 map("n", "<leader>dc", '<cmd>lua require"dap".continue()<CR>', opt) -- 
-map("n", "<leader>d0", '<cmd>lua require"dap".terminate()<CR>', opt) -- 
+map("n", "<leader>dq", '<cmd>lua require"dap".terminate()<CR>', opt) -- 
 map("n", "<leader>dk", '<cmd>lua require"dap".step_over()<CR>', opt) -- 
 map("n", "<leader>di", '<cmd>lua require"dap".step_into()<CR>', opt) -- 
 map("n", "<leader>do", '<cmd>lua require"dap".step_out()<CR>', opt) -- 

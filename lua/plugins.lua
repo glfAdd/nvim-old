@@ -173,7 +173,6 @@ return require("packer").startup(function(use)
 
 	-- ......................................... 编号选择窗口
 	use({ "https://gitlab.com/yorickpeterse/nvim-window", lock = is_lock })
-	-- use{ 'hoschi/yode-nvim', lock = is_lock } -- 有问题无法使用
 
 	-- ##########################################################
 	-- terminal

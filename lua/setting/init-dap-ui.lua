@@ -17,9 +17,7 @@ require("dapui").setup({
 		--   expand = "o",
 		-- }
 	},
-	-- Expand lines larger than the window
-	-- Requires >= 0.7
-	expand_lines = vim.fn.has("nvim-0.7") == 1,
+	expand_lines = 1,
 	-- 可以分别设置 left right top bottom 位置展示哪个窗口
 	-- 指定宽度或高度. int 是实际大小, float 是百分比
 	-- 根据 elements 顺序展示
