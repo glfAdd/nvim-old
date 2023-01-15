@@ -120,6 +120,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- ......................................... dap lsp 安装管理工具
+	use({
+		"williamboman/mason.nvim",
+		lock = is_lock,
+		config = function()
+			require("setting.init-mason")
+		end,
+	})
+
 	-- ......................................... 虚拟文本
 	use({ "theHamsta/nvim-dap-virtual-text", lock = is_lock })
 	-- ......................................... python
