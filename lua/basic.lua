@@ -1,7 +1,7 @@
 local vim = vim
 
 -- 使用 python 的路径
-vim.g.python3_host_prog = "~/.config/nvim/source/p3.11.0-venv/bin/python"
+vim.g.python3_host_prog = "~/.virtualenvs/p3111-nvim/bin/python"
 -- toggle use
 vim.o.hidden = true
 -- leader
